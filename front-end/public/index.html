@@ -11,6 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 	<!-- Vendor scripts -->
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript" src="vendor/js/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="vendor/js/bootstrap.min.js"></script>
 </head>
@@ -34,18 +35,18 @@
 		</div>
 	</nav>
 	
-	<section id="name">
+	<section>
+		<input id="search">
+		<div id="results"></div>
 	</section>
 
 	<!-- Hydra scripts -->
 	<!-- Sandbox core -->
 	<script type="text/javascript" src="js/sandbox.js"></script>
 	<!-- Modules -->
-	<script type="text/javascript" src="js/module.js"></script>
-	<script type="text/javascript">
-		Sandbox('moduloDeTeste', [], function(){
-			$("#name").text('Hydra');
-		})
-	</script>
+	<script type="text/javascript" src="js/utils/googleUtils.js"></script>
+	<script type="text/javascript" src="js/components/googleComponent.js"></script>
+	<script type="text/javascript" src="js/controllers/googleController.js"></script>
+
 </body>
 </html>
