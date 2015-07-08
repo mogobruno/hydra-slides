@@ -19,7 +19,7 @@ Sandbox('googleComponent',[],function(){
 
             var newImg = document.createElement('img');
             newImg.src=result.tbUrl;
-            newImg.width = 50;
+            newImg.width = 100;
             
             link.appendChild(newImg);
             imgContainer.appendChild(link);

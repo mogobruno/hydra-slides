@@ -17,7 +17,7 @@
 </head>
 <body> 
 
-	<nav class="navbar navbar-default navbar-fixed-top">
+	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -29,15 +29,62 @@
 				<a class="navbar-brand" href="index.html">SlideShow</a>
 			</div>
 
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
+			<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+				<form class="navbar-form navbar-left" role="search">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Login">
+						<input type="password" class="form-control" placeholder="Senha">
+					</div>
+					<button type="submit" class="btn btn-default">Entrar</button>
+				</form>
 			</div>
 		</div>
 	</nav>
 	
-	<section class="container-fluid">
-		<input class="form-control" id="search">
-		<div class="row" id="results"></div>
+	<section class="container">
+		<div class="row">
+			<div class="col-md-7">
+				<h1>Crie sua apresentação focando no conteudo, e deixe que nós garantimos o layout</h1>
+				<h3>Tenha acesso a conteudo diretamente lincado ao site</h3>
+				<p><a class="btn btn-blue btn-lg" href="#" role="button">Crie uma conta</a></p>
+			</div>
+			<div class="col-md-5">
+				<div class="video">
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/pT68FS3YbQ4" ></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<div>
+			<div class="input-group">
+				<span class="input-group-addon" id="procurar-addon">Apresentações</span>
+				<input type="text" class="form-control" placeholder="Procurar" aria-describedby="procurar-addon">
+			</div>
+			<div class="row slides">
+				<div class="col-xs-6 col-md-3">
+					<a href="#" class="thumbnail">
+						<img src="img/171x180.png" alt="slide">
+					</a>
+				</div>
+				<div class="col-xs-6 col-md-3">
+					<a href="#" class="thumbnail">
+						<img src="img/171x180.png" alt="slide">
+					</a>
+				</div>
+				<div class="col-xs-6 col-md-3">
+					<a href="#" class="thumbnail">
+						<img src="img/171x180.png" alt="slide">
+					</a>
+				</div>
+				<div class="col-xs-6 col-md-3">
+					<a href="#" class="thumbnail">
+						<img src="img/171x180.png" alt="slide">
+					</a>
+				</div>
+			</div>
+		</div>
 	</section>
 
 	<!-- Hydra scripts -->
