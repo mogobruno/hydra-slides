@@ -10,15 +10,18 @@ Sandbox('googleComponent',[],function(){
             
             var result = results[i];
             var imgContainer = document.createElement('div');
-            var title = document.createElement('div');
-            
+            imgContainer.className = "col-xs-4 col-md-1";
            
-            title.innerHTML = result.title;
-            var newImg = document.createElement('img');
+            var link = document.createElement('a');
+            link.href = "#";
+            link.className = "thumbnail";
 
-  
+            var newImg = document.createElement('img');
             newImg.src=result.tbUrl;
-            imgContainer.appendChild(newImg);
+            newImg.width = 50;
+            
+            link.appendChild(newImg);
+            imgContainer.appendChild(link);
             console.log(result);
 
             contentDiv.appendChild(imgContainer);
