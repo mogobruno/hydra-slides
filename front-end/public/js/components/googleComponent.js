@@ -1,5 +1,6 @@
 Sandbox('googleComponent',[],function(){
-	var drawImages = function(imageSearch, wraper){
+	//TODO arrumar este componente para usar JQuery
+  var drawImages = function(imageSearch, wraper){
         if (imageSearch.results && imageSearch.results.length > 0) {
 
           var contentDiv = document.getElementById(wraper);
