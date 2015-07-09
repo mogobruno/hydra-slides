@@ -3,7 +3,6 @@
       <div class="col-md-7">
         <h1>Crie sua apresentação focando no conteudo, e deixe que nós garantimos o layout</h1>
         <h3>Tenha acesso a conteudo diretamente lincado ao site</h3>
-        <p><a class="btn btn-blue btn-lg" href="#cadastro" role="button">Crie uma conta</a></p>
       </div>
       <div class="col-md-5">
         <div class="video">
@@ -52,13 +51,24 @@
         <div class="col-md-5">
           <h3>Cadastre-se</h3>
           <p>Basta preencher o formulário abaixo</p>
-          <form>
+          <form ng-submit="createUser(user)">
             <br>
-            <input type="text" class="form-control">
+            <input type="text" ng-model="user.name" class="form-control" placeholder="Nome">
             <br>
-            <input type="text" class="form-control">
+            <input type="text" ng-model="user.email" class="form-control" placeholder="E-Mail">
             <br>
-            <input type="text" class="form-control">
+            <input type="password" ng-model="user.password" class="form-control" placeholder="Senha">
+            <br>
+            <input type="password" ng-model="user.passwordd" class="form-control" placeholder="Repita a senha">
+            <br>
+            <select ng-model="user.question" class="form-control">
+              <option>Qual o nome da sua avó?</option>
+              <option>Qual o nome da sua mãe?</option>
+              <option>Com quantos anos você perdeu a virgindade?</option>
+              <option>Você já deu o cú?</option>
+            </select>
+            <br>
+            <input type="text" ng-model="user.answer" class="form-control" placeholder="Resposta">
             <br>
             <input type="submit" class="form-control">
           </form>
