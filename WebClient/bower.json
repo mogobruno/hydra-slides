@@ -1,5 +1,5 @@
 {
-  "name": "web-client",
+  "name": "hydra-web-client",
   "version": "0.0.0",
   "dependencies": {
     "angular": "^1.3.0",
