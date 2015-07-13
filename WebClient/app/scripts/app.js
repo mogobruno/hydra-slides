@@ -27,4 +27,5 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+  .value('serviceUrl', 'https://demo4742137.mockable.io/hydra/v1');

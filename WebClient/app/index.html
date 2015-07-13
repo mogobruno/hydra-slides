@@ -34,10 +34,10 @@
         </div>
 
         <div ng-controller="NavbarcontrollerCtrl" class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-          <form ng-submit="logar(userLogin)" class="navbar-form navbar-left" role="search">
+          <form ng-submit="login(user)" class="navbar-form navbar-left" role="search">
             <div class="form-group">
-            <input type="text" ng-model="userLogin.login" class="form-control" placeholder="Login">
-            <input type="password" ng-model="userLogin.password" class="form-control" placeholder="Senha">
+            <input type="text" ng-model="user.login" class="form-control" placeholder="Login">
+            <input type="password" ng-model="user.password" class="form-control" placeholder="Senha">
             </div>
             <button type="submit" class="btn btn-default">Entrar</button>
           </form>
@@ -49,11 +49,11 @@
 
     <footer class="footer-dark-blue">
       <div class="container">
-        
+
       </div>
     </footer>
-    
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID
      <script>
        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
        (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
@@ -63,6 +63,7 @@
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
     </script>
+    -->
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -82,6 +83,7 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/navbarcontroller.js"></script>
+        <script src="scripts/services/requisition.js"></script>
         <!-- endbuild -->
 </body>
 </html>

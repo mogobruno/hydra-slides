@@ -8,8 +8,18 @@
  * Controller of the webClientApp
  */
 angular.module('webClientApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope, requisition) {
     $scope.createUser = function(user){
-    	console.log(user);
-    }
+  		requisition.post({
+        url:'/user',
+        data: user,
+        success: function(data){
+          console.log(data.userMessage);
+        },
+        error: function(data){
+          //TODO arrumar esse trecho para um alert mais bonito ou uma modal
+          console.log(data.userMessage);
+        }
+      });
+    };
   });
