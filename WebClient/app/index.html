@@ -9,6 +9,7 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/src/loading-bar.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -34,7 +35,7 @@
         </div>
 
         <div ng-controller="NavbarcontrollerCtrl" class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-          <form ng-submit="login(user)" class="navbar-form navbar-left" role="search">
+          <form ng-hide="hasUser" ng-submit="login(user)" class="navbar-form navbar-left" role="search">
             <div class="form-group">
             <input type="text" ng-model="user.login" class="form-control" placeholder="Login">
             <input type="password" ng-model="user.password" class="form-control" placeholder="Senha">
@@ -45,6 +46,19 @@
       </div>
     </nav>
 
+
+
+    <aside ng-show="hasUser" class="fixed-asside">
+        <div class="row">
+        <ul class="nav nav-pills nav-stacked">
+            <li role="presentation" class="active"><a href="#">Apresentações</a></li>
+            <li role="presentation"><a href="#">Criar apresentação</a></li>
+            <li role="presentation"><a href="#">Minhas apresentações</a></li>
+            <li role="presentation"><a href="#">Editar Perfil</a></li>
+            <li role="presentation"><a href="#">Sair</a></li>
+        </ul>
+        </div>
+    </aside>
     <div ng-view=""></div>
 
     <footer class="footer-dark-blue">
@@ -69,6 +83,7 @@
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-loading-bar/src/loading-bar.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -84,6 +99,7 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/navbarcontroller.js"></script>
         <script src="scripts/services/requisition.js"></script>
+        <script src="scripts/controllers/home.js"></script>
         <!-- endbuild -->
 </body>
 </html>

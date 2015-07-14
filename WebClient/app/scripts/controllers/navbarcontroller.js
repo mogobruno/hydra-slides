@@ -8,14 +8,18 @@
  * Controller of the webClientApp
  */
 angular.module('webClientApp')
-  .controller('NavbarcontrollerCtrl', function ($scope, requisition, $location) {
+  .controller('NavbarcontrollerCtrl', function ($scope, requisition, $window) {
+      $scope.hasUser = false;
+
   		$scope.login = function(user){
   			requisition.post({
           url:'/login',
           data: user,
           success: function(data){
             console.dir(data);
-            $location.path('/home?name='+data.user.name);
+            $scope.user = data.user;
+            $scope.hasUser = true;
+            $window.location.href = '#/home?name='+data.user.name;
           },
           error: function(data){
             //TODO arrumar esse trecho para um alert mais bonito ou uma modal
