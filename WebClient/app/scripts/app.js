@@ -30,6 +30,21 @@ angular
         controller: 'HomeCtrl',
         controllerAs: 'home'
       })
+      .when('/my/slides', {
+        templateUrl: 'views/myslides.html',
+        controller: 'MyslidesCtrl',
+        controllerAs: 'myslides'
+      })
+      .when('/new/slide', {
+        templateUrl: 'views/newslide.html',
+        controller: 'NewslideCtrl',
+        controllerAs: 'newslide'
+      })
+      .when('/me', {
+        templateUrl: 'views/me.html',
+        controller: 'MeCtrl',
+        controllerAs: 'me'
+      })
       .otherwise({
         redirectTo: '/'
       });

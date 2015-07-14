@@ -9,20 +9,20 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/angular-loading-bar/src/loading-bar.css" />
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="webClientApp">
+  <body ng-app="webClientApp"  ng-controller="NavbarcontrollerCtrl">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -31,35 +31,42 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">SlideShow</a>
+          <a class="navbar-brand" href=""><span class="glyphicon glyphicon-blackboard"></span> SlideShow</a>
         </div>
 
-        <div ng-controller="NavbarcontrollerCtrl" class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
           <form ng-hide="hasUser" ng-submit="login(user)" class="navbar-form navbar-left" role="search">
             <div class="form-group">
             <input type="text" ng-model="user.login" class="form-control" placeholder="Login">
             <input type="password" ng-model="user.password" class="form-control" placeholder="Senha">
             </div>
-            <button type="submit" class="btn btn-default">Entrar</button>
+            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-log-in"></span> Entrar</button>
           </form>
+          <div class="menu-767-max" ng-show="hasUser">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Apresentações<span class="sr-only">(current)</span></a></li>
+              <li><a href="">Minhas Apresentações</a></li>
+              <li><a href="">Criar Apresentação</a></li>
+              <li><a href="">Editar Perfil</a></li>
+              <li><a ng-click="logout()" href="">Sair</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
 
-
-
-    <aside ng-show="hasUser" class="fixed-asside">
+    <aside class="aside-fixed menu-767-min" ng-show="hasUser">
         <div class="row">
         <ul class="nav nav-pills nav-stacked">
-            <li role="presentation" class="active"><a href="#">Apresentações</a></li>
-            <li role="presentation"><a href="#">Criar apresentação</a></li>
-            <li role="presentation"><a href="#">Minhas apresentações</a></li>
-            <li role="presentation"><a href="#">Editar Perfil</a></li>
-            <li role="presentation"><a href="#">Sair</a></li>
+            <li role="presentation" class="active"><a href="#/home"><span class="glyphicon glyphicon-search"></span> Apresentações</a></li>
+            <li role="presentation"><a href="#/my/slides"><span class="glyphicon glyphicon-folder-open"></span> Minhas Apresentações</a></li>
+            <li role="presentation"><a href="#/new/slide"><span class="glyphicon glyphicon-plus"></span> Apresentação</a></li>
+            <li role="presentation"><a href="#/me"><span class="glyphicon glyphicon-user"></span> Editar Perfil</a></li>
+            <li role="presentation"><a ng-click="logout()" href="#"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>
         </ul>
         </div>
     </aside>
-    <div ng-view=""></div>
+    <div ng-class="{'aside-left-distance': hasUser}" ng-view=""></div>
 
     <footer class="footer-dark-blue">
       <div class="container">
@@ -83,7 +90,6 @@
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-loading-bar/src/loading-bar.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -91,6 +97,7 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -100,6 +107,9 @@
         <script src="scripts/controllers/navbarcontroller.js"></script>
         <script src="scripts/services/requisition.js"></script>
         <script src="scripts/controllers/home.js"></script>
+        <script src="scripts/controllers/me.js"></script>
+        <script src="scripts/controllers/newslide.js"></script>
+        <script src="scripts/controllers/myslides.js"></script>
         <!-- endbuild -->
 </body>
 </html>
