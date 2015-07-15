@@ -49,4 +49,4 @@ angular
         redirectTo: '/'
       });
   })
-  .value('serviceUrl', 'https://demo4742137.mockable.io/hydra/v1');
+  .value('serviceUrl', 'https://demo4528169.mockable.io/hydra/v1');
