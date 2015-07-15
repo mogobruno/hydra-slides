@@ -9,8 +9,8 @@
  */
 angular.module('webClientApp')
   .controller('NavbarcontrollerCtrl', function ($scope, requisition, $window) {
-      var token = sessionStorage.token;
-      if(token){
+      var user = sessionStorage.user;
+      if(user){
           $scope.hasUser = true;
           $window.location.href = '#/home';
       }else{
