@@ -10,4 +10,5 @@
 angular.module('webClientApp')
   .controller('MeCtrl', function ($scope) {
       $scope.name = "me";
+      $scope.email = "me@email.com";
   });
