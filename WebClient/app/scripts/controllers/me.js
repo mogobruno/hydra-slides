@@ -9,6 +9,9 @@
  */
 angular.module('webClientApp')
   .controller('MeCtrl', function ($scope) {
-      $scope.name = "me";
-      $scope.email = "me@email.com";
+  	  $scope.name = "perereca do Brejo"
+      $scope.job = "pogramadô";
+      $scope.nationality = "pU3";
+      $scope.passwdord;
+      $scope.passwordd;
   });

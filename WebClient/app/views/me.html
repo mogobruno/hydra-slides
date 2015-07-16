@@ -8,28 +8,52 @@
                 <td><strong>Nome</strong></td>
                 <td>{{name | capitalize}}</td>
                 <td><a href="" ng-click="item='name'">Editar</a></td>
-
             </tr>
             <tr ng-show="item=='name'">
             	<td colspan=3>
             		<strong>Nome</strong>
-            		<input type="text" ng-model="user.name" class="form-control" placeholder="Nome">
+            		<input type="text" ng-model="user.name" class="form-control">
             		<br>
-            		<p><a href="#" class="btn btn-primary" role="button">Salvar</a>
+            		<p><input type="submit" class="btn btn-primary" value="Salvar">
+                       <input type="submit" class="btn btn-primary" value="Cancelar"> 
+                    </p>
             	</td>
             </tr>
 
-            <tr ng-hide="item=='email'">
-            	<td><strong>E-mail</strong></td>
-            	<td>{{email | capitalize}}</td>
-            	<td><a href="" ng-click="item='email'">Editar</a></td>
+            <tr ng-hide="item=='job'">
+                <td><strong>Emprego</strong></td>
+                <td>{{job | capitalize}}</td>
+                <td><a href="" ng-click="item='job'">Editar</a></td>
             </tr>
-            <tr ng-show="item=='email'">
+            <tr ng-show="item=='job'">
+                <td colspan=3>
+                    <strong>Emprego</strong>
+                    <input type="text" ng-model="user.job" class="form-control">
+                    <br>
+                    <p><input type="submit" class="btn btn-primary" value="Salvar">
+                       <input type="submit" class="btn btn-primary" value="Cancelar"> 
+                    </p>
+                </td>
+            </tr>
+
+            <tr ng-hide="item=='nationality'">
+            	<td><strong>Nacionalidade</strong></td>
+            	<td>{{nationality | capitalize}}</td>
+            	<td><a href="" ng-click="item='nationality'">Editar</a></td>
+            </tr>
+            <tr ng-show="item=='nationality'">
             	<td colspan=3>
-            		<strong>E-mail</strong>
-            		<input type="text" ng-model="user.name" class="form-control" placeholder="E-mail">
+            		<strong>Nacionalidade</strong>
+            		<select ng-model="user.question" class="form-control">
+                        <option>Brasileiro</option>
+                        <option>Estadunidense</option>
+                        <option>Canadense</option>
+                        <option>Russo</option>
+                    </select>
             		<br>
-            		<p><a href="#" class="btn btn-primary" role="button">Salvar</a>
+            		<p><input type="submit" class="btn btn-primary" value="Salvar">
+                       <input type="submit" class="btn btn-primary" value="Cancelar"> 
+                    </p>
             	</td>
             </tr>
 
@@ -45,7 +69,9 @@
             		<br>
             		<input type="password" ng-model="user.passwordd" class="form-control" placeholder="Repetir Senha">
             		<br>
-            		<p><a href="#" class="btn btn-primary" role="button">Salvar</a>
+            		<p><input type="submit" class="btn btn-primary" value="Salvar">
+                       <input type="submit" class="btn btn-primary" value="Cancelar">
+                   </p>
             	</td>
             </tr>
         </tbody>
