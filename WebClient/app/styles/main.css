@@ -50,7 +50,8 @@ hr.style-one {
 section.box{
   background-color: #2980b9;
   color: #ffffff;
-  padding:50px;
+  padding-bottom:50px;
+  padding-top:50px;
   border-bottom:4px solid #3498db;
   box-shadow: -0px 2px 0px 1px rgba(0, 0, 0, 0.2);
 }
