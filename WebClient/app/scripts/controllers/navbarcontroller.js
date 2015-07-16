@@ -9,15 +9,7 @@
  */
 angular.module('webClientApp')
   .controller('NavbarcontrollerCtrl', function ($scope, requisition, $window) {
-      var user = sessionStorage.user;
-      if(user){
-          $scope.hasUser = true;
-          $window.location.href = '#/home';
-      }else{
-          $scope.hasUser = false;
-          $window.location.href = '#/';
-      }
-
+  
       $scope.menu = 1;
 
   		$scope.login = function(user){
