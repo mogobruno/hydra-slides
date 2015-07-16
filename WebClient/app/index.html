@@ -44,10 +44,10 @@
           </form>
           <div class="menu-767-max" ng-show="hasUser">
             <ul class="nav navbar-nav">
-              <li  ng-class="{'active': menu === 1}" ng-click="menu = 1"><a href="#">Apresentações<span class="sr-only">(current)</span></a></li>
-              <li  ng-class="{'active': menu === 2}" ng-click="menu = 2"><a href="">Minhas Apresentações</a></li>
-              <li  ng-class="{'active': menu === 3}" ng-click="menu = 3"><a href="">Criar Apresentação</a></li>
-              <li  ng-class="{'active': menu === 4}" ng-click="menu = 4"><a href="">Editar Perfil</a></li>
+              <li  ng-class="{'active': menu === 1}" ng-click="menu = 1"><a href="#/home">Apresentações<span class="sr-only">(current)</span></a></li>
+              <li  ng-class="{'active': menu === 2}" ng-click="menu = 2"><a href="#/my/slides">Minhas Apresentações</a></li>
+              <li  ng-class="{'active': menu === 3}" ng-click="menu = 3"><a href="#/new/slide">Criar Apresentação</a></li>
+              <li  ng-class="{'active': menu === 4}" ng-click="menu = 4"><a href="#/me">Editar Perfil</a></li>
               <li><a ng-click="logout()" href="">Sair</a></li>
             </ul>
           </div>
