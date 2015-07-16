@@ -44,10 +44,10 @@
           </form>
           <div class="menu-767-max" ng-show="hasUser">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Apresentações<span class="sr-only">(current)</span></a></li>
-              <li><a href="">Minhas Apresentações</a></li>
-              <li><a href="">Criar Apresentação</a></li>
-              <li><a href="">Editar Perfil</a></li>
+              <li  ng-class="{'active': menu === 1}" ng-click="menu = 1"><a href="#">Apresentações<span class="sr-only">(current)</span></a></li>
+              <li  ng-class="{'active': menu === 2}" ng-click="menu = 2"><a href="">Minhas Apresentações</a></li>
+              <li  ng-class="{'active': menu === 3}" ng-click="menu = 3"><a href="">Criar Apresentação</a></li>
+              <li  ng-class="{'active': menu === 4}" ng-click="menu = 4"><a href="">Editar Perfil</a></li>
               <li><a ng-click="logout()" href="">Sair</a></li>
             </ul>
           </div>
@@ -58,14 +58,15 @@
     <aside class="aside-fixed menu-767-min" ng-show="hasUser">
         <div class="row">
         <ul class="nav nav-pills nav-stacked">
-            <li role="presentation" class="active"><a href="#/home"><span class="glyphicon glyphicon-search"></span> Apresentações</a></li>
-            <li role="presentation"><a href="#/my/slides"><span class="glyphicon glyphicon-folder-open"></span> Minhas Apresentações</a></li>
-            <li role="presentation"><a href="#/new/slide"><span class="glyphicon glyphicon-plus"></span> Apresentação</a></li>
-            <li role="presentation"><a href="#/me"><span class="glyphicon glyphicon-user"></span> Editar Perfil</a></li>
-            <li role="presentation"><a ng-click="logout()" href="#"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>
+            <li ng-class="{'active': menu === 1}" ng-click="menu = 1" role="presentation"><a href="#/home"><span class="glyphicon glyphicon-search glyphicon-md"></span></a></li>
+            <li ng-class="{'active': menu === 2}" ng-click="menu = 2" role="presentation"><a href="#/my/slides"><span class="glyphicon glyphicon-folder-open glyphicon-md"></span></a></li>
+            <li ng-class="{'active': menu === 3}" ng-click="menu = 3" role="presentation"><a href="#/new/slide"><span class="glyphicon glyphicon-plus glyphicon-md"></span></a></li>
+            <li ng-class="{'active': menu === 4}" ng-click="menu = 4" role="presentation"><a href="#/me"><span class="glyphicon glyphicon-user glyphicon-md"></span></a></li>
+            <li role="presentation"><a ng-click="logout()" href="#"><span class="glyphicon glyphicon-log-out"></span></a></li>
         </ul>
         </div>
     </aside>
+
     <div ng-class="{'aside-left-distance': hasUser}" ng-view=""></div>
 
     <footer class="footer-dark-blue">

@@ -18,6 +18,8 @@ angular.module('webClientApp')
           $window.location.href = '#/';
       }
 
+      $scope.menu = 1;
+
   		$scope.login = function(user){
   			requisition.post({
           url:'/login',
