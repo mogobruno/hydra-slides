@@ -4,76 +4,109 @@
 	<h3>Atualizar Cadastro</h3>
     <table class="table table-hover">
         <tbody>
-            <tr ng-hide="item=='name'">
-                <td><strong>Nome</strong></td>
-                <td>{{name | capitalize}}</td>
-                <td><a href="" ng-click="item='name'">Editar</a></td>
-            </tr>
-            <tr ng-show="item=='name'">
-            	<td colspan=3>
-            		<strong>Nome</strong>
-            		<input type="text" ng-model="user.name" class="form-control">
-            		<br>
-            		<p><input type="submit" class="btn btn-primary" value="Salvar">
-                       <input type="submit" class="btn btn-primary" value="Cancelar"> 
-                    </p>
-            	</td>
-            </tr>
 
-            <tr ng-hide="item=='job'">
-                <td><strong>Emprego</strong></td>
-                <td>{{job | capitalize}}</td>
-                <td><a href="" ng-click="item='job'">Editar</a></td>
-            </tr>
-            <tr ng-show="item=='job'">
-                <td colspan=3>
-                    <strong>Emprego</strong>
-                    <input type="text" ng-model="user.job" class="form-control">
-                    <br>
-                    <p><input type="submit" class="btn btn-primary" value="Salvar">
-                       <input type="submit" class="btn btn-primary" value="Cancelar"> 
-                    </p>
-                </td>
-            </tr>
+            <form class="form-horizontal" ng-submit="atualizar(name)">
+                <div class="form-group">
+                    <tr ng-hide="item=='name'">
+                        <td><strong>Nome</strong></td>
+                        <td>{{name | capitalize}}</td>
+                        <td><a href="" ng-click="item='name'">Editar</a></td>
+                    </tr>
+                </div>
+                <div class="form-group">                 
+                    <tr ng-show="item=='name'">
+                    	<td colspan=3>
+                    		<strong>Nome</strong>
+                    		<input type="text" ng-model="user.name" class="form-control">
+                    		<br>
+                            <div class="form-group">
+                        		<p><button class="btn btn-success">Atualizar</button>
+                                   <a href="" class="btn btn-warning">Cancelar</a> 
+                                </p>
+                            </div>
+                    	</td>
+                    </tr>
+                </div>  
+            </form>
 
-            <tr ng-hide="item=='nationality'">
-            	<td><strong>Nacionalidade</strong></td>
-            	<td>{{nationality | capitalize}}</td>
-            	<td><a href="" ng-click="item='nationality'">Editar</a></td>
-            </tr>
-            <tr ng-show="item=='nationality'">
-            	<td colspan=3>
-            		<strong>Nacionalidade</strong>
-            		<select ng-model="user.question" class="form-control">
-                        <option>Brasileiro</option>
-                        <option>Estadunidense</option>
-                        <option>Canadense</option>
-                        <option>Russo</option>
-                    </select>
-            		<br>
-            		<p><input type="submit" class="btn btn-primary" value="Salvar">
-                       <input type="submit" class="btn btn-primary" value="Cancelar"> 
-                    </p>
-            	</td>
-            </tr>
+            <form class="form-horizontal" ng-submit="atualizar(job)">
+                <div class="form-group">    
+                    <tr ng-hide="item=='job'">
+                        <td><strong>Emprego</strong></td>
+                        <td>{{job | capitalize}}</td>
+                        <td><a href="" ng-click="item='job'">Editar</a></td>
+                    </tr>
+                </div>
+                <div class="form-group">    
+                    <tr ng-show="item=='job'">
+                        <td colspan=3>
+                            <strong>Emprego</strong>
+                            <input type="text" ng-model="user.job" class="form-control">
+                            <br>
+                            <div class="form-group">
+                                <p><button class="btn btn-success">Atualizar</button>
+                                   <a href="/me" class="btn btn-warning">Cancelar</a> 
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                </div>    
+            </form>
 
-            <tr ng-hide="item=='password'">
-            	<td><strong>Senha</strong></td>
-            	<td>Não faço ideia do que escrever aqui</td>
-            	<td><a href="" ng-click="item='password'">Editar</a></td>
-            </tr>
-            <tr ng-show="item=='password'">
-            	<td colspan=3>
-            		<strong>Senha</strong>
-            		<input type="password" ng-model="user.password" class="form-control" placeholder="Senha">
-            		<br>
-            		<input type="password" ng-model="user.passwordd" class="form-control" placeholder="Repetir Senha">
-            		<br>
-            		<p><input type="submit" class="btn btn-primary" value="Salvar">
-                       <input type="submit" class="btn btn-primary" value="Cancelar">
-                   </p>
-            	</td>
-            </tr>
+            <form class="form-horizontal" ng-submit="atualizar(nationality)">
+                <div class="form-group">
+                    <tr ng-hide="item=='nationality'">
+                    	<td><strong>Nacionalidade</strong></td>
+                    	<td>{{nationality | capitalize}}</td>
+                    	<td><a href="" ng-click="item='nationality'">Editar</a></td>
+                    </tr>
+                </div>
+                <div class="form-group">
+                    <tr ng-show="item=='nationality'">
+                    	<td colspan=3>
+                    		<strong>Nacionalidade</strong>
+                    		<select ng-model="user.question" class="form-control">
+                                <option>Brasileiro</option>
+                                <option>Estadunidense</option>
+                                <option>Canadense</option>
+                                <option>Russo</option>
+                            </select>
+                    		<br>
+                            <div class="form-group">
+                        		<p><button class="btn btn-success">Atualizar</button>
+                                   <a href="#/me" class="btn btn-warning">Cancelar</a> 
+                                </p>
+                            </div>
+                    	</td>
+                    </tr>
+                </div>
+            </form>
+
+            <form class="form-horizontal" ng-submit="atualizar(passwd)">
+                <div class="form-group">
+                    <tr ng-hide="item=='password'">
+                    	<td><strong>Senha</strong></td>
+                    	<td>Não faço ideia do que escrever aqui</td>
+                    	<td><a href="" ng-click="item='password'">Editar</a></td>
+                    </tr>
+                </div>
+                <div class="form-group">
+                    <tr ng-show="item=='password'">
+                    	<td colspan=3>
+                    		<strong>Senha</strong>
+                    		<input type="password" ng-model="user.password" class="form-control" placeholder="Senha">
+                    		<br>
+                    		<input type="password" ng-model="user.passwordd" class="form-control" placeholder="Repetir Senha">
+                    		<br>
+                            <div class="form-group">
+                        		<p><button class="btn btn-success">Atualizar</button>
+                                   <a href="#/me" class="btn btn-warning">Cancelar</a> 
+                                </p>
+                            </div>
+                    	</td>
+                    </tr>
+                </div>
+            </form>    
         </tbody>
     </table>
 </div>

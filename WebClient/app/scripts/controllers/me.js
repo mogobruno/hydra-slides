@@ -11,7 +11,7 @@ angular.module('webClientApp')
   .controller('MeCtrl', function ($scope) {
   	  $scope.name = "perereca do Brejo"
       $scope.job = "pogramadô";
-      $scope.nationality = "pU3";
+      $scope.nationality = "HU3";
       $scope.passwdord;
       $scope.passwordd;
   });
