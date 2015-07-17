@@ -45,6 +45,11 @@ angular
         controller: 'MeCtrl',
         controllerAs: 'me'
       })
+      .when('/slide/:id', {
+        templateUrl: 'views/slide.html',
+        controller: 'SlideCtrl',
+        controllerAs: 'slide'
+      })
       .otherwise({
         redirectTo: '/'
       });

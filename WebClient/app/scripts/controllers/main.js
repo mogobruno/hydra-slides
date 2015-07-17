@@ -11,10 +11,9 @@ angular.module('webClientApp')
   .controller('MainCtrl', function ($scope, requisition) {
 
     requisition.get({
-      url:'/slides',
+      url:'/deslogado/slides',
       success: function(data){
         console.dir(data);
-        authentication: true,
         $scope.presentations = data.presentations;
       },
       error: function(data){

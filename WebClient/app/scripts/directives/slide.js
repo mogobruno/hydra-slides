@@ -8,12 +8,11 @@
  */
 angular.module('webClientApp')
   .directive('slide', function () {
-    return {
-      restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        var theme = attrs.theme;
-        var title = attrs.title;
-        var subtitle = attrs.subtitle;
+    var createSlide = function(scope, element, attrs){
+      if(scope.presentation){
+        var theme = scope.presentation.theme;
+        var title = scope.presentation.title;
+        var subtitle = scope.presentation.subTitle;
 
         var canvas = document.createElement('canvas');
         canvas.width = 1920;
@@ -39,9 +38,19 @@ angular.module('webClientApp')
 
 
         var image = new Image();
-      	image.src = canvas.toDataURL("image/png");
+        image.src = canvas.toDataURL("image/png");
         image.className = 'img-responsive';
         element.html(image);
       }
+    }
+
+    var link = function(scope, element, attrs){
+      scope.$watchCollection('presentation', function(){
+        createSlide(scope, element, attrs);
+      });
+    }
+    return {
+      restrict: 'E',
+      link: link
     };
   });

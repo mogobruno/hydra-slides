@@ -71,8 +71,8 @@
       <h3>Apresentações</h3>
       <input type="text" class="form-control" placeholder="Procurar apresentação">
       <div class="row slides">
-        <div ng-repeat="presentation in presentations" class="col-md-3">
-          <a href="#" class="thumbnail">
+        <div ng-repeat="presentation in presentations" class="col-sm-6 col-md-3">
+          <a href="#/slide/{{presentation.id}}" class="thumbnail">
             <slide theme={{presentation.theme}} title={{presentation.title}} subtitle={{presentation.subTitle}}></slide>
             <div class="author">Autor: {{presentation.author}}</div>
           </a>
