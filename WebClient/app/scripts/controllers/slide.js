@@ -10,6 +10,7 @@
 angular.module('webClientApp')
   .controller('SlideCtrl', function ($scope, requisition) {
     //TODO trocar o 1 pelo id da rota em $routeParam ou $stateParam
+
     requisition.get({
       url:'/slide/1',
       success: function(data){
