@@ -13,6 +13,12 @@ angular.module('webClientApp')
 
     $scope.index = 0;
 
+    $scope.isFullscreen = false;
+
+    $scope.toggleFullScreen = function() {
+        $scope.isFullscreen = !$scope.isFullscreen;
+    }
+
     $scope.next = function(){
         if($scope.index < $scope.presentation.slidesImages.length)
           ++$scope.index;
