@@ -16,6 +16,8 @@ angular.module('webClientApp')
     $scope.isFullscreen = false;
 
     $scope.toggleFullScreen = function() {
+        $scope.index = 0;
+        $scope.actualImage = $scope.presentation.slidesImages[$scope.index];
         $scope.isFullscreen = !$scope.isFullscreen;
     }
 
