@@ -1,11 +1,11 @@
 <section>
   <h3><span class="glyphicon glyphicon-blackboard"></span> {{presentation.title}}</h3>
-  <input type="text" name="name" ng-model="presentation.title">
-  <br>
   <div class="col-md-7">
-    <slide></slide>
+    <img ng-src={{actualImage}} alt="" class="img-responsive" />
+    <button type="button" name="button" ng-click="previous()">Anterior</button>
+    <button type="button" name="button" ng-click="next()">Próximo</button>
   </div>
   <div class="col-md-5">
-    zczdd
+
   </div>
 </section>
