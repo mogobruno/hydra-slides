@@ -1,12 +1,16 @@
 <section>
-  <h3><span class="glyphicon glyphicon-blackboard"></span> {{presentation.title}}</h3>
   <div class="col-md-7">
-    <img ng-src={{actualImage}} alt="" class="img-responsive" ng-click="next()" fullscreen="isFullscreen"/>
-    <button type="button" name="button" ng-click="previous()">Anterior</button>
-    <button type="button" name="button" ng-click="next()">Próximo</button>
-    <button ng-click="toggleFullScreen()">Apresentar</button>
+    <div class="presentation">
+      <img ng-src={{actualImage}} alt="" class="img-responsive" ng-click="next()" fullscreen="isFullscreen"/>
+      <button type="button" name="button" class="presentation-button" ng-click="previous()"><span class="glyphicon glyphicon-chevron-left"></span> Anterior</button>
+      <button type="button" name="button" class="presentation-button" ng-click="next()">Próximo <span class="glyphicon glyphicon-chevron-right"></span></button>
+      <button class="presentation-button presentation-button-fullscreen" ng-click="toggleFullScreen()">Apresentar <span class="glyphicon glyphicon-fullscreen"></span></button>
+    </div>
   </div>
   <div class="col-md-5">
-
+    <div class="information">
+      <h4><span class="glyphicon glyphicon-info-sign"></span>Descrição</h4>
+      <p>{{presentation.description}}</p>
+    </div>
   </div>
 </section>

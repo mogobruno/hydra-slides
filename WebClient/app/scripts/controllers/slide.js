@@ -8,7 +8,7 @@
  * Controller of the webClientApp
  */
 angular.module('webClientApp')
-  .controller('SlideCtrl', function ($scope, requisition, slideGenerator) {
+  .controller('SlideCtrl', function ($scope, requisition, slideGenerator, $window) {
     //TODO trocar o 1 pelo id da rota em $routeParam ou $stateParam
 
     $scope.index = 0;
@@ -24,6 +24,8 @@ angular.module('webClientApp')
     $scope.next = function(){
         if($scope.index < $scope.presentation.slidesImages.length)
           ++$scope.index;
+
+            console.log($scope.index);
         $scope.actualImage = $scope.presentation.slidesImages[$scope.index];
     }
 
@@ -32,8 +34,6 @@ angular.module('webClientApp')
           --$scope.index;
         $scope.actualImage = $scope.presentation.slidesImages[$scope.index];
     }
-
-
 
     requisition.get({
       url:'/slide/1',
@@ -49,4 +49,5 @@ angular.module('webClientApp')
         console.log(data.userMessage);
       }
     });
+
   });

@@ -121,3 +121,19 @@ section.box{
 .author{
   padding:5px;
 }
+
+.presentation{
+  background-color: #2980b9;
+  box-shadow: -5px 5px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.presentation-button{
+  margin:10px;
+  background-color: #2980b9;
+  color:#ffffff;
+  border:none;
+}
+
+.slide-edit{
+  margin-top:10px;
+}

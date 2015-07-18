@@ -1,1 +1,15 @@
-<p>newslide - {{name}}</p>
+<section>
+  <div class="col-md-7">
+    <form ng-submit="save(presentation)">
+      <input type="button" name="name" class="form-control" ng-model="presentation.title" placeholder="Titulo">
+      <input type="button" name="name" class="form-control" ng-model="presentation.subTitle" placeholder="Sub-titulo">
+      <textarea name="name"  class="form-control text-edit" ng-model="presentation.unformatedSlides"></textarea>
+      <input type="submit" name="name" value="Salvar">
+    </form>
+  </div>
+  <div class="col-md-5">
+    <div class="slide-edit" ng-repeat="image in presentation.slidesImages">
+        <img ng-src={{image}} alt="" class="img-responsive"/>
+    </div>
+  </div>
+</section>
