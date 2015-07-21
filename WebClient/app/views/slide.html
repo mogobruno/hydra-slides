@@ -6,11 +6,15 @@
       <button type="button" name="button" class="presentation-button" ng-click="next()">Próximo <span class="glyphicon glyphicon-chevron-right"></span></button>
       <button class="presentation-button presentation-button-fullscreen" ng-click="toggleFullScreen()">Apresentar <span class="glyphicon glyphicon-fullscreen"></span></button>
     </div>
-  </div>
-  <div class="col-md-5">
-    <div class="information">
-      <h4><span class="glyphicon glyphicon-info-sign"></span>Descrição</h4>
+    <br>
+    <div class="information box-white">
+      <h4>{{presentation.title}}</h4>
+      <p><span class="glyphicon glyphicon-user box-gray"></span> {{presentation.author}} </p>
+      <hr>
       <p>{{presentation.description}}</p>
     </div>
+  </div>
+  <div class="col-md-5">
+
   </div>
 </section>

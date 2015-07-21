@@ -12,7 +12,7 @@ angular.module('webClientApp')
       var user = localStorage.user;
       if(user !== "undefined"){
           $scope.hasUser = true;
-          $window.location.href = '#/home';
+          //$window.location.href = '#/home';
       }else{
           $scope.hasUser = false;
           $window.location.href = '#/';
@@ -43,6 +43,7 @@ angular.module('webClientApp')
           success: function(data){
             console.dir(data);
             $scope.hasUser = false;
+            $scope.menu = 1;
             $window.location.href = '#/';
           },
           error: function(data){
