@@ -10,6 +10,9 @@
 angular.module('webClientApp')
   .controller('NavbarcontrollerCtrl', function ($scope, requisition, $window) {
       var user = localStorage.user;
+
+      console.log($scope.hasUser);
+
       if(user !== "undefined"){
           $scope.hasUser = true;
           //$window.location.href = '#/home';

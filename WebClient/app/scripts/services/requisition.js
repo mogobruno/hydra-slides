@@ -15,7 +15,6 @@ angular.module('webClientApp')
       if(params.authentication){
         params.data.token = JSON.parse(localStorage.user).token;
       }
-      console.info('post:login:data'+JSON.stringify(params.data));
       $http({
         method:params.type,
         url: serviceUrl + params.url,
