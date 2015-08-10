@@ -13,9 +13,8 @@ angular.module('webClientApp')
     var httpRequesition = function(params){
       params.data = params.data || {};
       if(params.authentication){
-        params.data.token = JSON.parse(sessionStorage.user).token;
+        params.data.token = JSON.parse(localStorage.user).token;
       }
-      console.info('post:login:data'+JSON.stringify(params.data));
       $http({
         method:params.type,
         url: serviceUrl + params.url,
@@ -25,7 +24,7 @@ angular.module('webClientApp')
         if(data.error){
           params.error(data);
         }else{
-          sessionStorage.user = JSON.stringify(data.user);
+          localStorage.user = JSON.stringify(data.user);
           params.success(data);
         }
       }).error(function(data){ //, status, headers, config

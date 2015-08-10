@@ -71,24 +71,10 @@
       <h3>Apresentações</h3>
       <input type="text" class="form-control" placeholder="Procurar apresentação">
       <div class="row slides">
-        <div class="col-xs-6 col-md-3">
-          <a href="#" class="thumbnail">
-            <img src="images/171x180.png" alt="slide">
-          </a>
-        </div>
-        <div class="col-xs-6 col-md-3">
-          <a href="#" class="thumbnail">
-            <img src="images/171x180.png" alt="slide">
-          </a>
-        </div>
-        <div class="col-xs-6 col-md-3">
-          <a href="#" class="thumbnail">
-            <img src="images/171x180.png" alt="slide">
-          </a>
-        </div>
-        <div class="col-xs-6 col-md-3">
-          <a href="#" class="thumbnail">
-            <img src="images/171x180.png" alt="slide">
+        <div ng-repeat="presentation in presentations" class="col-sm-6 col-md-3">
+          <a href="#/slide/{{presentation.id}}" class="thumbnail">
+            <img ng-src="{{presentation.coverImage}}" alt="" class="img-responsive"/>
+            <div class="author">Autor: {{presentation.author}}</div>
           </a>
         </div>
       </div>

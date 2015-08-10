@@ -31,7 +31,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href=""><span class="glyphicon glyphicon-blackboard"></span> SlideShow</a>
+          <a ng-hide="hasUser" class="navbar-brand" href="#/"><span class="glyphicon glyphicon-blackboard"></span> SlideShow</a>
+          <a ng-show="hasUser" class="navbar-brand" href="#/home"><span class="glyphicon glyphicon-blackboard"></span> SlideShow</a>
         </div>
 
         <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
@@ -44,10 +45,10 @@
           </form>
           <div class="menu-767-max" ng-show="hasUser">
             <ul class="nav navbar-nav">
-              <li  ng-class="{'active': menu === 1}" ng-click="menu = 1"><a href="#">Apresentações<span class="sr-only">(current)</span></a></li>
-              <li  ng-class="{'active': menu === 2}" ng-click="menu = 2"><a href="">Minhas Apresentações</a></li>
-              <li  ng-class="{'active': menu === 3}" ng-click="menu = 3"><a href="">Criar Apresentação</a></li>
-              <li  ng-class="{'active': menu === 4}" ng-click="menu = 4"><a href="">Editar Perfil</a></li>
+              <li  ng-class="{'active': menu === 1}" ng-click="menu = 1"><a href="#/home">Apresentações<span class="sr-only">(current)</span></a></li>
+              <li  ng-class="{'active': menu === 2}" ng-click="menu = 2"><a href="#/my/slides">Minhas Apresentações</a></li>
+              <li  ng-class="{'active': menu === 3}" ng-click="menu = 3"><a href="#/new/slide">Criar Apresentação</a></li>
+              <li  ng-class="{'active': menu === 4}" ng-click="menu = 4"><a href="#/me">Editar Perfil</a></li>
               <li><a ng-click="logout()" href="">Sair</a></li>
             </ul>
           </div>
@@ -62,7 +63,7 @@
             <li ng-class="{'active': menu === 2}" ng-click="menu = 2" role="presentation"><a href="#/my/slides"><span class="glyphicon glyphicon-folder-open glyphicon-md"></span></a></li>
             <li ng-class="{'active': menu === 3}" ng-click="menu = 3" role="presentation"><a href="#/new/slide"><span class="glyphicon glyphicon-plus glyphicon-md"></span></a></li>
             <li ng-class="{'active': menu === 4}" ng-click="menu = 4" role="presentation"><a href="#/me"><span class="glyphicon glyphicon-user glyphicon-md"></span></a></li>
-            <li role="presentation"><a ng-click="logout()" href="#"><span class="glyphicon glyphicon-log-out"></span></a></li>
+            <li role="presentation"><a ng-click="logout()" href="#"><span class="glyphicon glyphicon-log-out glyphicon-md"></span></a></li>
         </ul>
         </div>
     </aside>
@@ -99,6 +100,7 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="bower_components/angular-fullscreen/src/angular-fullscreen.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -111,6 +113,9 @@
         <script src="scripts/controllers/me.js"></script>
         <script src="scripts/controllers/newslide.js"></script>
         <script src="scripts/controllers/myslides.js"></script>
+        <script src="scripts/controllers/slide.js"></script>
+        <script src="scripts/services/slidegenerator.js"></script>
+        <script src="scripts/services/slidecanvas.js"></script>
         <!-- endbuild -->
 </body>
 </html>

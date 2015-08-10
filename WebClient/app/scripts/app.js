@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'angular-loading-bar'
+    'angular-loading-bar',
+    'FBAngular'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -45,8 +46,14 @@ angular
         controller: 'MeCtrl',
         controllerAs: 'me'
       })
+      .when('/slide/:id', {
+        templateUrl: 'views/slide.html',
+        controller: 'SlideCtrl',
+        controllerAs: 'slide'
+      })
       .otherwise({
         redirectTo: '/'
       });
   })
-  .value('serviceUrl', 'https://demo4528169.mockable.io/hydra/v1');
+  .value('serviceUrl', 'https://demo7480230.mockable.io/hydra/v1');
+
