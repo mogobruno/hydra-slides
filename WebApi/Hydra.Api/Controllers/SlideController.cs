@@ -31,11 +31,11 @@ namespace Hydra.Api.Controllers
         }
 
         // POST: api/Slide
-        public HttpResponseMessage Post([FromBody]Slide value)
+        public HttpResponseMessage Post([FromBody]Slide slide)
         {
             try
             {
-                _slideRepository.Insert(value);
+                _slideRepository.Insert(slide);
                 return new HttpResponseMessage(HttpStatusCode.OK);
             }
             catch (Exception ex)
@@ -45,9 +45,10 @@ namespace Hydra.Api.Controllers
         }
 
         // PUT: api/Slide/5
-        public void Put(int id, [FromBody]Slide value)
+        public void Put(long id, [FromBody]Slide slide)
         {
-            _slideRepository.Update(value);
+            slide.Id = id;
+            _slideRepository.Update(slide);
         }
 
         // DELETE: api/Slide/5
