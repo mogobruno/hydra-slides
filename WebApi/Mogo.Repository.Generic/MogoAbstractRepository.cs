@@ -12,7 +12,7 @@ namespace Mogo.Repository.Generic.Entity
         where TEntity : class
     {
 
-        private DbContext _context;
+        protected DbContext _context;
 
         public MogoAbstractRepository(DbContext context)
         {
@@ -21,7 +21,7 @@ namespace Mogo.Repository.Generic.Entity
 
         public virtual IList<TEntity> Select(Expression<Func<TEntity, bool>> where = null,
                 Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
-                int skip = 0, int take = 0)
+                int skip = 0, int take = 0, params string[] includeProperties)
         {
             IQueryable<TEntity> result;
             if (where == null)
@@ -32,6 +32,10 @@ namespace Mogo.Repository.Generic.Entity
             {
                 result = _context.Set<TEntity>().Where(where);
             }
+            includeProperties.ToList().ForEach(property =>
+            {
+                result = result.Include(property);
+            });
             if (orderBy != null)
             {
                 result = orderBy(result);
@@ -48,7 +52,7 @@ namespace Mogo.Repository.Generic.Entity
             return result.ToList();
         }
 
-        public virtual TEntity FindById(TKey key)
+        public virtual TEntity FindById(TKey key, params string[] includeProperties)
         {
             return _context.Set<TEntity>().Find(key);
         }

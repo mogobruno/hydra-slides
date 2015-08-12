@@ -60,7 +60,10 @@ namespace Hydra.Persistence.MySql.Entity.TypeConfigurations
 
         public override void ConfigureForeignKeys()
         {
-            
+            HasMany(p => p.Slides)
+                .WithRequired(p => p.Owner)
+                .HasForeignKey(p => p.OwnerId)
+                .WillCascadeOnDelete(false);
         }
 
         public override void ConfigureOthers()

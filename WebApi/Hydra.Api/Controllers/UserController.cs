@@ -21,13 +21,13 @@ namespace Hydra.Api.Controllers
         // GET: api/User
         public IEnumerable<User> Get()
         {
-            return _userRepository.Select();
+            return _userRepository.Select(includeProperties: "Slides");
         }
 
         // GET: api/User/5
         public User Get(long id)
         {
-            return _userRepository.FindById(id);
+            return _userRepository.FindById(id, includeProperties: "Slides");
         }
 
         // POST: api/User

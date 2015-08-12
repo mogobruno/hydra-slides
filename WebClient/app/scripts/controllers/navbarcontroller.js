@@ -13,7 +13,7 @@ angular.module('webClientApp')
 
       console.log($scope.hasUser);
 
-      if(user !== "undefined"){
+      if(user != "undefined"){
           $scope.hasUser = true;
           //$window.location.href = '#/home';
       }else{

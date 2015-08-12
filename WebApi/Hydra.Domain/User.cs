@@ -14,5 +14,6 @@ namespace Hydra.Domain
         public string Password { get; set; }
         public string Nationality { get; set; }
         public string Job { get; set; }
+        public virtual ICollection<Slide> Slides { get; set; }
     }
 }

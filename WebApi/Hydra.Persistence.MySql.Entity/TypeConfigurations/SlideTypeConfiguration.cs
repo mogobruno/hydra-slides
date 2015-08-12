@@ -50,6 +50,11 @@ namespace Hydra.Persistence.MySql.Entity.TypeConfigurations
                 .HasColumnName("sld_update_date")
                 .HasColumnOrder(5)
                 .IsOptional();
+
+            Property(p => p.OwnerId)
+                .HasColumnName("usr_owner_id")
+                .HasColumnOrder(6)
+                .IsRequired();
         }
 
         public override void ConfigurePrimaryKey()

@@ -10,6 +10,7 @@ namespace Hydra.Api
         public static void Register(HttpConfiguration config)
         {
             config.Formatters.Remove(config.Formatters.XmlFormatter);
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 
             config.MapHttpAttributeRoutes();
 
