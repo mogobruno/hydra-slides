@@ -9,6 +9,7 @@ namespace Hydra.Api
     {
         public static void Register(HttpConfiguration config)
         {
+            config.EnableCors();
             config.Formatters.Remove(config.Formatters.XmlFormatter);
             config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 
@@ -16,7 +17,7 @@ namespace Hydra.Api
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                routeTemplate: "hydra/api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
         }

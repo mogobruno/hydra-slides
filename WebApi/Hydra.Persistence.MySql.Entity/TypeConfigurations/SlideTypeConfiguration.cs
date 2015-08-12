@@ -29,31 +29,42 @@ namespace Hydra.Persistence.MySql.Entity.TypeConfigurations
                 .HasColumnOrder(1)
                 .IsRequired();
 
+            Property(p => p.SubTitle)
+                .HasColumnName("sld_sub_title")
+                .HasMaxLength(100)
+                .HasColumnOrder(2)
+                .IsRequired();
+
             Property(p => p.Description)
                 .HasColumnName("sld_description")
                 .HasMaxLength(1000)
-                .HasColumnOrder(2)
+                .HasColumnOrder(3)
                 .IsRequired();
 
             Property(p => p.Content)
                 .HasColumnName("sld_content")
-                .HasColumnOrder(3)
+                .HasColumnOrder(4)
+                .IsRequired();
+
+            Property(p => p.Theme)
+                .HasColumnName("sld_theme")
+                .HasColumnOrder(5)
                 .IsRequired();
 
             Property(p => p.CreateDate)
                 .HasColumnName("sld_create_date")
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Computed)
-                .HasColumnOrder(4)
+                .HasColumnOrder(6)
                 .IsRequired();
 
             Property(p => p.UpdateDate)
                 .HasColumnName("sld_update_date")
-                .HasColumnOrder(5)
+                .HasColumnOrder(7)
                 .IsOptional();
 
             Property(p => p.OwnerId)
                 .HasColumnName("usr_owner_id")
-                .HasColumnOrder(6)
+                .HasColumnOrder(8)
                 .IsRequired();
         }
 

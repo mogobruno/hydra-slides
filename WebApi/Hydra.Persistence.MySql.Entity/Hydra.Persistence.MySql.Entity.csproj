@@ -67,6 +67,14 @@
     <Compile Include="Migrations\201508120135370_CriacaoLinkUserSlide.Designer.cs">
       <DependentUpon>201508120135370_CriacaoLinkUserSlide.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508120229395_CriacaoPropriedadeTema.cs" />
+    <Compile Include="Migrations\201508120229395_CriacaoPropriedadeTema.Designer.cs">
+      <DependentUpon>201508120229395_CriacaoPropriedadeTema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201508120243446_CriacaoPropriedadeSubTitle.cs" />
+    <Compile Include="Migrations\201508120243446_CriacaoPropriedadeSubTitle.Designer.cs">
+      <DependentUpon>201508120243446_CriacaoPropriedadeSubTitle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeConfigurations\AbstractTypeConfiguration.cs" />
@@ -92,6 +100,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201508120135370_CriacaoLinkUserSlide.resx">
       <DependentUpon>201508120135370_CriacaoLinkUserSlide.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508120229395_CriacaoPropriedadeTema.resx">
+      <DependentUpon>201508120229395_CriacaoPropriedadeTema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508120243446_CriacaoPropriedadeSubTitle.resx">
+      <DependentUpon>201508120243446_CriacaoPropriedadeSubTitle.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
