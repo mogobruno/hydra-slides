@@ -1,4 +1,6 @@
-﻿using Hydra.Domain;
+﻿using AutoMapper;
+using Hydra.Api.DTO;
+using Hydra.Domain;
 using Mogo.Repository.Generic.Entity;
 using System;
 using System.Collections.Generic;
@@ -10,7 +12,7 @@ using System.Web.Http.Cors;
 
 namespace Hydra.Api.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "GET,PUT,POST,DELETE")]
     public class UserController : ApiController
     {
         private MogoAbstractRepository<User, long> _userRepository;
@@ -21,28 +23,45 @@ namespace Hydra.Api.Controllers
         }
 
         // GET: api/User
-        public IEnumerable<User> Get()
+        public IEnumerable<UserDTO> Get()
         {
-            return _userRepository.Select(includeProperties: "Slides");
+            return Mapper.Map<List<User>,List<UserDTO>>(_userRepository.Select(includeProperties: "Slides").ToList());
         }
 
         // GET: api/User/5
-        public User Get(long id)
+        public UserDTO Get(long id)
         {
-            return _userRepository.FindById(id, includeProperties: "Slides");
+            return Mapper.Map<User, UserDTO>(_userRepository.FindById(id, includeProperties: "Slides"));
         }
 
         // POST: api/User
-        public void Post([FromBody]User user)
+        public HttpResponseMessage Post([FromBody]UserDTO userDTO)
         {
-            _userRepository.Insert(user);
+            if (ModelState.IsValid)
+            {
+                User user = Mapper.Map<UserDTO, User>(userDTO);
+                _userRepository.Insert(user);
+                return Request.CreateResponse(HttpStatusCode.Created);
+            }
+            else
+            {
+                return ResponseErrorUtil.CreateResponseError(Request, ModelState);
+            }
         }
 
         // PUT: api/User/5
-        public void Put(int id, [FromBody]User user)
+        public HttpResponseMessage Put(int id, [FromBody]UserDTO userDTO)
         {
-            user.Id = id;
-            _userRepository.Update(user);
+            if (ModelState.IsValid)
+            {
+                User user = Mapper.Map<UserDTO, User>(userDTO);
+                _userRepository.Update(user);
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            else
+            {
+                return ResponseErrorUtil.CreateResponseError(Request, ModelState);
+            }
         }
 
         // DELETE: api/User/5

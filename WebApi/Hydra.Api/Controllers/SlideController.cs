@@ -1,4 +1,6 @@
-﻿using Hydra.Domain;
+﻿using AutoMapper;
+using Hydra.Api.DTO;
+using Hydra.Domain;
 using Mogo.Repository.Generic.Entity;
 using System;
 using System.Collections.Generic;
@@ -10,7 +12,7 @@ using System.Web.Http.Cors;
 
 namespace Hydra.Api.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "GET,PUT,POST,DELETE")]
     public class SlideController : ApiController
     {
         private MogoAbstractRepository<Slide, long> _slideRepository;
@@ -21,36 +23,45 @@ namespace Hydra.Api.Controllers
         }
 
         // GET: api/Slide
-        public IEnumerable<Slide> Get()
+        public IEnumerable<SlideDTO> Get()
         {
-            return _slideRepository.Select();
+            return Mapper.Map<List<Slide>, List<SlideDTO>>(_slideRepository.Select().ToList());
         }
 
         // GET: api/Slide/5
-        public Slide Get(long id)
+        public SlideDTO Get(long id)
         {
-            return _slideRepository.FindById(id);
+            return Mapper.Map<Slide, SlideDTO>(_slideRepository.FindById(id));
         }
 
         // POST: api/Slide
-        public HttpResponseMessage Post([FromBody]Slide slide)
+        public HttpResponseMessage Post([FromBody]SlideDTO slideDTO)
         {
-            try
+            if (ModelState.IsValid)
             {
+                Slide slide = Mapper.Map<SlideDTO, Slide>(slideDTO);
                 _slideRepository.Insert(slide);
-                return new HttpResponseMessage(HttpStatusCode.OK);
+                return Request.CreateResponse(HttpStatusCode.OK);
             }
-            catch (Exception ex)
+            else
             {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+                return ResponseErrorUtil.CreateResponseError(Request, ModelState);
             }
         }
 
         // PUT: api/Slide/5
-        public void Put(long id, [FromBody]Slide slide)
+        public HttpResponseMessage Put(long id, [FromBody]SlideDTO slideDTO)
         {
-            slide.Id = id;
-            _slideRepository.Update(slide);
+            if (ModelState.IsValid)
+            {
+                Slide slide = Mapper.Map<SlideDTO, Slide>(slideDTO);
+                _slideRepository.Update(slide);
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            else
+            {
+                return ResponseErrorUtil.CreateResponseError(Request, ModelState);
+            }
         }
 
         // DELETE: api/Slide/5
@@ -59,5 +70,6 @@ namespace Hydra.Api.Controllers
             Slide slide = _slideRepository.FindById(id);
             _slideRepository.Delete(slide);
         }
+
     }
 }

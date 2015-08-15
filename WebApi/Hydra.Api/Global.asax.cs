@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using Hydra.Api.App_Start;
+using System.Web.Http;
 using System.Web.Mvc;
 
 namespace Hydra.Api
@@ -9,6 +10,7 @@ namespace Hydra.Api
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            AutoMapperConfig.InitializeMapper();
         }
 
     }
