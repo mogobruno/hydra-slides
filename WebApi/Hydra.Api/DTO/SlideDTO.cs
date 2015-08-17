@@ -19,7 +19,7 @@ namespace Hydra.Api.DTO
         [Required]
         public string Content { get; set; }
         [Required]
-        [MaxLength(100)]
+        [MaxLength(1000)]
         public string Description { get; set; }
         [Required]
         public string Theme { get; set; }

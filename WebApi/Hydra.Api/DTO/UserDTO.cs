@@ -11,14 +11,16 @@ namespace Hydra.Api.DTO
         [Required]
         public int Id { get; set; }
         [Required(ErrorMessage = "olha a merda que você ta fazendo")]
-        [MaxLength(100)]
+        [MaxLength(200)]
         public string Name { get; set; }
         [Required]
         [EmailAddress]
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }
+        [MaxLength(100)]
         public string Nationality { get; set; }
+        [MaxLength(100)]
         public string Job { get; set; }
         public List<SlideDTO> Slides { get; set; }
     }
