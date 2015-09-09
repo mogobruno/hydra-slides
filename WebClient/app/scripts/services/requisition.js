@@ -13,7 +13,11 @@ angular.module('webClientApp')
     var httpRequesition = function(params){
       params.data = params.data || {};
       if(params.authentication){
-        params.data.token = JSON.parse(localStorage.user).token;
+       
+        if(localStorage.user){
+          var user = JSON.parse(localStorage.user);
+          params.data.token = user.token;
+        }
       }
       $http({
         method:params.type,
@@ -24,7 +28,9 @@ angular.module('webClientApp')
         if(data.error){
           params.error(data);
         }else{
-          localStorage.user = JSON.stringify(data.user);
+          if(data.token){
+            localStorage.user = JSON.stringify(data);
+          }
           params.success(data);
         }
       }).error(function(data){ //, status, headers, config

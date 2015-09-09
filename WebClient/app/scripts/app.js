@@ -55,5 +55,5 @@ angular
         redirectTo: '/'
       });
   })
-  .value('serviceUrl', 'https://demo7480230.mockable.io/hydra/v1');
+  .value('serviceUrl', 'http://localhost:61807/hydra/api');
 

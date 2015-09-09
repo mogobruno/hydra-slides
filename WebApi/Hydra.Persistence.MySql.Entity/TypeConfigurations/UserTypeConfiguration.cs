@@ -44,7 +44,7 @@ namespace Hydra.Persistence.MySql.Entity.TypeConfigurations
                 .HasColumnName("usr_nationationality")
                 .HasMaxLength(100)
                 .HasColumnOrder(4)
-                .IsRequired();
+                .IsOptional();
 
             Property(p => p.Job)
                 .HasColumnName("usr_job")

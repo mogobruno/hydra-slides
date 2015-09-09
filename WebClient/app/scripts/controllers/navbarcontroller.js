@@ -11,10 +11,11 @@ angular.module('webClientApp')
   .controller('NavbarcontrollerCtrl', function ($scope, requisition, $window) {
       var user = localStorage.user;
 
-      console.log($scope.hasUser);
+      console.log(localStorage.user);
 
-      if(user != "undefined"){
+      if(user){
           $scope.hasUser = true;
+          $scope.user = JSON.parse(user);
           //$window.location.href = '#/home';
       }else{
           $scope.hasUser = false;
@@ -25,10 +26,11 @@ angular.module('webClientApp')
 
   		$scope.login = function(user){
   			requisition.post({
-          url:'/login',
+          url:'/loginfake',
           data: user,
           success: function(data){
-            console.dir(data.user.name);
+            localStorage.user = JSON.stringify(data);
+            console.dir(data.name);
             $scope.hasUser = true;
             $window.location.href = '#/home';
           },
@@ -41,9 +43,10 @@ angular.module('webClientApp')
 
       $scope.logout = function(){
         requisition.post({
-          url:'/logout',
+          url:'/logoutfake',
           authentication: true,
           success: function(data){
+            delete localStorage.user;
             console.dir(data);
             $scope.hasUser = false;
             $scope.menu = 1;

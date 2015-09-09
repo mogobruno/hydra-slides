@@ -9,5 +9,7 @@
  */
 angular.module('webClientApp')
   .controller('MeCtrl', function ($scope) {
-      $scope.name = "me";
+      if(localStorage.user){
+      	$scope.user = JSON.parse(localStorage.user);
+      }
   });

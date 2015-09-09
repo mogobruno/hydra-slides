@@ -21,9 +21,9 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="hydra-navbar navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
@@ -31,44 +31,40 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a ng-hide="hasUser" class="navbar-brand" href="#/"><span class="glyphicon glyphicon-blackboard"></span> SlideShow</a>
-          <a ng-show="hasUser" class="navbar-brand" href="#/home"><span class="glyphicon glyphicon-blackboard"></span> SlideShow</a>
+          <a ng-hide="hasUser" class="navbar-brand" href="#/"><img alt="Brand" src="images/logo.png" width="25"></a>
+          <a ng-show="hasUser" class="navbar-brand" href="#/me">{{user.name}}</a>
         </div>
 
-        <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-          <form ng-hide="hasUser" ng-submit="login(user)" class="navbar-form navbar-left" role="search">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+          <ul ng-show="hasUser" class="nav navbar-nav">
+            <li><a href="#/home"><span class="glyphicon glyphicon-search"></span> Pesquisar</a></li>
+            <li class="dropdown">
+              <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-blackboard"></span> Slides <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#/new/slide"><span class="glyphicon glyphicon-plus"></span> Novo</a></li>
+                <li><a href="#/my/slides"><span class="glyphicon glyphicon-folder-open"></span> Arquivados</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <form ng-hide="hasUser" ng-submit="login(user)" class="navbar-form navbar-right">
             <div class="form-group">
-            <input type="text" ng-model="user.login" class="form-control" placeholder="Login">
-            <input type="password" ng-model="user.password" class="form-control" placeholder="Senha">
+            <input type="text" ng-model="user.login" class="form-control navbar-dark-input" placeholder="Login">
+            <input type="password" ng-model="user.password" class="form-control navbar-dark-input" placeholder="Senha">
             </div>
-            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-log-in"></span> Entrar</button>
+            <button type="submit" class="btn btn-green"><span class="glyphicon glyphicon-log-in"></span> Entrar</button>
           </form>
-          <div class="menu-767-max" ng-show="hasUser">
-            <ul class="nav navbar-nav">
-              <li  ng-class="{'active': menu === 1}" ng-click="menu = 1"><a href="#/home">Apresentações<span class="sr-only">(current)</span></a></li>
-              <li  ng-class="{'active': menu === 2}" ng-click="menu = 2"><a href="#/my/slides">Minhas Apresentações</a></li>
-              <li  ng-class="{'active': menu === 3}" ng-click="menu = 3"><a href="#/new/slide">Criar Apresentação</a></li>
-              <li  ng-class="{'active': menu === 4}" ng-click="menu = 4"><a href="#/me">Editar Perfil</a></li>
-              <li><a ng-click="logout()" href="">Sair</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+
+          <form ng-show="hasUser" class="navbar-form navbar-right">
+            <button ng-click="logout()" class="btn btn-green"><span class="glyphicon glyphicon-log-out"></span> Sair</button>
+          </form>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
     </nav>
 
-    <aside class="aside-fixed menu-767-min" ng-show="hasUser">
-        <div class="row">
-        <ul class="nav nav-pills nav-stacked">
-            <li ng-class="{'active': menu === 1}" ng-click="menu = 1" role="presentation"><a href="#/home"><span class="glyphicon glyphicon-search glyphicon-md"></span></a></li>
-            <li ng-class="{'active': menu === 2}" ng-click="menu = 2" role="presentation"><a href="#/my/slides"><span class="glyphicon glyphicon-folder-open glyphicon-md"></span></a></li>
-            <li ng-class="{'active': menu === 3}" ng-click="menu = 3" role="presentation"><a href="#/new/slide"><span class="glyphicon glyphicon-plus glyphicon-md"></span></a></li>
-            <li ng-class="{'active': menu === 4}" ng-click="menu = 4" role="presentation"><a href="#/me"><span class="glyphicon glyphicon-user glyphicon-md"></span></a></li>
-            <li role="presentation"><a ng-click="logout()" href="#"><span class="glyphicon glyphicon-log-out glyphicon-md"></span></a></li>
-        </ul>
-        </div>
-    </aside>
-
-    <div ng-class="{'aside-left-distance': hasUser}" ng-view=""></div>
+    <div ng-view=""></div>
 
     <footer class="footer-dark-blue">
       <div class="container">

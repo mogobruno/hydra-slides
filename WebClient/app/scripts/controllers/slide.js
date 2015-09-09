@@ -8,7 +8,7 @@
  * Controller of the webClientApp
  */
 angular.module('webClientApp')
-  .controller('SlideCtrl', function ($scope, requisition, slideGenerator, $window) {
+  .controller('SlideCtrl', function ($scope, requisition, slideGenerator, $routeParams) {
     //TODO trocar o 1 pelo id da rota em $routeParam ou $stateParam
 
     $scope.index = 0;
@@ -34,12 +34,14 @@ angular.module('webClientApp')
         $scope.actualImage = $scope.presentation.slidesImages[$scope.index];
     }
 
+
+
     requisition.get({
-      url:'/slide/1',
+      url:'/slide/'+$routeParams.id,
       success: function(data){
-        var slides = slideGenerator.generateSlides(data.presentation);
-        data.presentation.slidesImages = slides;
-        $scope.presentation = data.presentation;
+        var slides = slideGenerator.generateSlides(data);
+        data.slidesImages = slides;
+        $scope.presentation = data;
         $scope.actualImage = $scope.presentation.slidesImages[$scope.index];
         console.log($scope.presentation);
       },

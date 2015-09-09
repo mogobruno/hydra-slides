@@ -2,7 +2,10 @@
   <section class="container">
     <div class="row">
       <div class="col-md-7">
-          <h1><strong>SlideShow</strong> a solução para criar apresentações de forma rápida</h1>
+
+          <h1>
+            <img src="images/logo.png" width="100"> <strong>HydraSlideShow</strong>
+          </h1> 
           <h3>Assista o vídeo e descubra o quão facil pode ser criar uma apresentação.</h3>
       </div>
       <div class="col-md-5">
@@ -40,24 +43,15 @@
           <p>Basta preencher o formulário abaixo</p>
           <form ng-submit="createUser(user)">
             <br>
-            <input type="text" ng-model="user.name" class="form-control" placeholder="Nome">
+            <input type="text" ng-model="user.name" class="form-control" placeholder="Nome" required>
             <br>
-            <input type="text" ng-model="user.email" class="form-control" placeholder="E-Mail">
+            <input type="text" ng-model="user.email" class="form-control" placeholder="E-Mail" required>
             <br>
-            <input type="password" ng-model="user.password" class="form-control" placeholder="Senha">
+            <input type="password" ng-model="user.password" class="form-control" placeholder="Senha" required>
             <br>
-            <input type="password" ng-model="user.passwordd" class="form-control" placeholder="Repita a senha">
+            <input type="password" ng-model="passwordd" class="form-control" placeholder="Repita a senha" required>
             <br>
-            <select ng-model="user.question" class="form-control">
-              <option>Qual o nome da sua avó?</option>
-              <option>Qual o nome da sua mãe?</option>
-              <option>Com quantos anos você perdeu a virgindade?</option>
-              <option>Você já deu o cú?</option>
-            </select>
-            <br>
-            <input type="text" ng-model="user.answer" class="form-control" placeholder="Resposta">
-            <br>
-            <input type="submit" class="form-control">
+            <input type="submit" class="form-control btn btn-green">
           </form>
         </div>
       </div>

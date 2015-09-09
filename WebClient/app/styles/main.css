@@ -4,24 +4,14 @@ body {
 }
 
 .video{
-  border-top:10px solid #3498db;
-  border-bottom:10px solid #2980b9;
-  border-left:10px solid #3498db;
-  border-right:10px solid #2980b9;
+  border-top:10px solid #2ecc71;
+  border-bottom:10px solid #27ae60;
+  border-left:10px solid #2ecc71;
+  border-right:10px solid #27ae60;
   border-radius: 10px;
   box-shadow: 0 1px 2px rgba(0,0,0,.1);
 }
 
-.video::before{
-    border-color: transparent #3498db transparent transparent;
-    border-style: solid;
-    border-width: 20px;
-    content: "";
-    left: -25px;
-    margin-top: -20px;
-    position: absolute;
-    top: 50%;
-  }
 
 .navbar-inverse{
     background-image: linear-gradient(to bottom,#2c3e50 0,#2c3e50 100%);
@@ -49,11 +39,11 @@ hr.style-one {
 }
 
 section.box{
-  background-color: #2980b9;
+  background-color: #34495e;
   color: #ffffff;
   padding-bottom:50px;
   padding-top:50px;
-  border-bottom:4px solid #3498db;
+  border-bottom:4px solid #27ae60;
   box-shadow: 0 1px 2px rgba(0,0,0,.1);
 }
 
@@ -85,21 +75,6 @@ section.box{
   padding-left: 100px;
 }
 
-.aside-fixed{
-  position: fixed;
-  background-color: #ffffff;
-  width:40px;
-  top:50px;
-  bottom:0px;
-  padding:10px;
-  border-right: 1px solid #c3c3c3;
-}
-
-.aside-left-distance{
-  padding-left:80px;
-  padding-right: 30px;
-}
-
 .glyphicon-md{
   font-size:18px;
 }
@@ -125,13 +100,13 @@ section.box{
 }
 
 .presentation{
-  background-color: #2980b9;
+  background-color: #2c3e50;
   box-shadow: 0 1px 2px rgba(0,0,0,.1);
 }
 
 .presentation-button{
   margin:10px;
-  background-color: #2980b9;
+  background-color: #2c3e50;
   color:#ffffff;
   border:none;
 }
@@ -150,4 +125,37 @@ section.box{
   background-color: #f3f3f3;
   padding:10px;
   box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+
+
+/*---- navbar ----*/
+
+nav.hydra-navbar input.navbar-dark-input{
+  background-color: #ecf0f1;
+  border: 1px solid #ecf0f1;
+  box-shadow: none;
+  transition: background-color 0.5s;
+}
+
+nav.hydra-navbar div div form div input.navbar-dark-input:focus{
+  color: #ecf0f1;
+  background-color: #2c3e50;
+  border: 1px solid #2c3e50;
+  box-shadow: none;
+}
+
+.btn-green{
+  color: #ecf0f1;
+  background-color: #2ecc71;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.btn-green:hover{
+  color: #ecf0f1;
+  background-color: #27ae60;
+}
+
+nav.hydra-navbar a.link{
+  text-decoration: none;
+  padding:15px;
 }
