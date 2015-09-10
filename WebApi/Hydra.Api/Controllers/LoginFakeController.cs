@@ -18,6 +18,11 @@ namespace Hydra.Api.Controllers
         {
             response["name"] = "Bruno Silva";
             response["token"] = "sad2sj1h2skj14h3jh4kj3hksj23h4kj3s2h4kj3hk4jahkj4hkc41lk3j2lk3j1k23jx12k3";
+            response["id"] = "4";
+            response["email"] = "mogo.bruno@gmail.com";
+            response["password"] = "123456789";
+            response["nationality"] = "Brasil";
+            response["job"] = "Instrutor de informatica";
         }
 
         // POST: api/LoginFake

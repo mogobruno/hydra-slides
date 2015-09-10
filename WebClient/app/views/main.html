@@ -1,12 +1,14 @@
 <div class="box-background">
   <section class="container">
     <div class="row">
-      <div class="col-md-7">
-
+      <div class="col-md-7 text-center">
           <h1>
-            <img src="images/logo.png" width="100"> <strong>HydraSlideShow</strong>
+            <img src="images/logo.png" width="100"> <strong>Hydra Slide Show</strong>
           </h1> 
           <h3>Assista o vídeo e descubra o quão facil pode ser criar uma apresentação.</h3>
+          <button class="btn btn-green btn-lg"> 
+            <span>Cadastre-se</span>
+          </button>
       </div>
       <div class="col-md-5">
         <div class="video">
@@ -19,51 +21,11 @@
   </section>
 </div>
 
-  <section id="cadastro" class="box">
+  <section class="box-border-green-sea">
     <div class="container">
-      <div class="row">
-        <div class="col-md-7">
-              <div class="col-md-6 text-center">
-                <img class="ball" src="images/file.png">
-                <h4>Trabalhando com foco no conteúdo, garantindo melhores resultados, é assim que você irá trabalhar no SlideShow</h4>
-              </div>
-
-              <div class="col-md-6 text-center">
-                <img class="ball" src="images/box.png">
-                <h4>Utilize nossas toolbox que facilita a inserção multimidia dentro das suas apresentações.</h4>
-              </div>
-
-              <div class="col-md-12 text-center">
-                <img class="ball" src="images/presentation.png">
-                <h4>Escolha sempre o layout que mais combina com o momento, e apresente um slide impecavel.</h4>
-              </div>
-        </div>
-        <div class="col-md-5">
-          <h3>Cadastre-se</h3>
-          <p>Basta preencher o formulário abaixo</p>
-          <form ng-submit="createUser(user)">
-            <br>
-            <input type="text" ng-model="user.name" class="form-control" placeholder="Nome" required>
-            <br>
-            <input type="text" ng-model="user.email" class="form-control" placeholder="E-Mail" required>
-            <br>
-            <input type="password" ng-model="user.password" class="form-control" placeholder="Senha" required>
-            <br>
-            <input type="password" ng-model="passwordd" class="form-control" placeholder="Repita a senha" required>
-            <br>
-            <input type="submit" class="form-control btn btn-green">
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <br>
-
-  <section class="container">
-    <div>
-      <h3>Apresentações</h3>
-      <input type="text" class="form-control" placeholder="Procurar apresentação">
+      <br>
+      <h4>Apresentações</h4>
+      <input type="text" class="form-control dark-input" placeholder="Procurar apresentação">
       <div class="row slides">
         <div ng-repeat="presentation in presentations" class="col-sm-6 col-md-3">
           <a href="#/slide/{{presentation.id}}" class="thumbnail">

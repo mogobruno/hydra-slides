@@ -31,7 +31,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a ng-hide="hasUser" class="navbar-brand" href="#/"><img alt="Brand" src="images/logo.png" width="25"></a>
+          <a ng-hide="hasUser" class="navbar-brand" href="#/"><p><img alt="Brand" src="images/logo.png" width="25"> Hydra</p></a>
           <a ng-show="hasUser" class="navbar-brand" href="#/me">{{user.name}}</a>
         </div>
 
@@ -41,7 +41,7 @@
           <ul ng-show="hasUser" class="nav navbar-nav">
             <li><a href="#/home"><span class="glyphicon glyphicon-search"></span> Pesquisar</a></li>
             <li class="dropdown">
-              <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-blackboard"></span> Slides <span class="caret"></span></a>
+              <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-blackboard"></span> Slides<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#/new/slide"><span class="glyphicon glyphicon-plus"></span> Novo</a></li>
                 <li><a href="#/my/slides"><span class="glyphicon glyphicon-folder-open"></span> Arquivados</a></li>
@@ -51,8 +51,8 @@
 
           <form ng-hide="hasUser" ng-submit="login(user)" class="navbar-form navbar-right">
             <div class="form-group">
-            <input type="text" ng-model="user.login" class="form-control navbar-dark-input" placeholder="Login">
-            <input type="password" ng-model="user.password" class="form-control navbar-dark-input" placeholder="Senha">
+            <input type="text" ng-model="user.login" class="form-control dark-input" placeholder="Login">
+            <input type="password" ng-model="user.password" class="form-control dark-input" placeholder="Senha">
             </div>
             <button type="submit" class="btn btn-green"><span class="glyphicon glyphicon-log-in"></span> Entrar</button>
           </form>
@@ -112,6 +112,8 @@
         <script src="scripts/controllers/slide.js"></script>
         <script src="scripts/services/slidegenerator.js"></script>
         <script src="scripts/services/slidecanvas.js"></script>
+        <script src="scripts/filters/capitalize.js"></script>
+
         <!-- endbuild -->
 </body>
 </html>

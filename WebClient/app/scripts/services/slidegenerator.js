@@ -11,6 +11,7 @@ angular.module('webClientApp')
   .service('slideGenerator', function (slideCanvas) {
       var generateSlide = function(theme, slide){
         slideCanvas.backgroundColor(theme);
+        slideCanvas.slideTitle(slide.title, 'white');
         slideCanvas.fullText(slide.content, 'white');
         return slideCanvas.getImage();
       }

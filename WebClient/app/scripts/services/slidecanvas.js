@@ -10,8 +10,8 @@
 angular.module('webClientApp')
   .service('slideCanvas', function () {
     var canvas = document.createElement('canvas');
-    canvas.width = 1920;
-    canvas.height = 1080;
+    canvas.width = 1366;
+    canvas.height = 768;
     var context = canvas.getContext('2d');
 
     function wrapText(context, text, x, y, maxWidth, lineHeight) {
@@ -35,25 +35,35 @@ angular.module('webClientApp')
       }
 
     this.coverTitle = function(value, color){
-      context.font = '130px Calibri';
+      context.font = '110px Calibri';
       context.textAlign = 'center';
       context.fillStyle = color;
       context.fillText(value, canvas.width/2, canvas.height/2);
     }
 
     this.coverSubTitle = function(value, color){
-      context.font = '80px Calibri';
+      context.font = '60px Calibri';
       context.textAlign = 'center';
       context.fillStyle = color;
       context.fillText(value, canvas.width/2, (canvas.height/2)+150);
     }
 
-    this.fullText = function(value, color){
-      context.font = '35px Calibri';
+    this.slideTitle = function(value, color){
+      context.font = '60px Calibri';
+      context.textAlign = 'left';
       context.fillStyle = color;
-      var startTextWidth = canvas.width*0.5;
+      var startTextWidth = canvas.width*0.1;
+      var startTextHeight = canvas.height*0.16;
+      context.fillText(value, startTextWidth, startTextHeight);
+    }
+
+    this.fullText = function(value, color){
+      context.font = '30px Calibri';
+      context.textAlign = 'left';
+      context.fillStyle = color;
+      var startTextWidth = canvas.width*0.1;
       var startTextHeight = canvas.height*0.3;
-      var maxWidth = canvas.width*0.95;
+      var maxWidth = canvas.width*0.82;
       var lineHeight = 45;
       wrapText(context, value, startTextWidth, startTextHeight, maxWidth, lineHeight);
     }

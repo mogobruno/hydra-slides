@@ -9,18 +9,36 @@
  */
 angular.module('webClientApp')
   .controller('NewslideCtrl', function ($scope, requisition, slideGenerator) {
-    requisition.get({
-      url:'/slide/1',
-      success: function(data){
-        var slides = slideGenerator.generateSlides(data.presentation);
-        data.presentation.slidesImages = slides;
-        $scope.presentation = data.presentation;
-        $scope.actualImage = $scope.presentation.slidesImages[$scope.index];
-        console.log($scope.presentation);
-      },
-      error: function(data){
-        //TODO arrumar esse trecho para um alert mais bonito ou uma modal
-        console.log(data.userMessage);
+    $scope.presentation = {};
+
+    if(localStorage.user){
+      var user = JSON.parse(localStorage.user);
+      console.log(user);
+      $scope.presentation.ownerId = user.id;  
+    }
+    
+
+    $scope.renderPreview = function(presentation){
+      generateSlides(presentation);
+    }
+
+    var generateSlides = function(presentation){
+      console.log(presentation);
+      var slidesContent = [];
+      if(presentation.slideContent){
+        var content = presentation.slideContent.split('\n');
+        for(var index = 0; index<content.length; index+=3){
+          var slide = {};
+          slide.title = content[index];
+          slide.content = content[index+1];
+          slidesContent.push(slide);
+        }
+        console.log(JSON.stringify(slidesContent));
       }
-    });
+
+      $scope.presentation.content = JSON.stringify(slidesContent);
+      var slides = slideGenerator.generateSlides($scope.presentation);
+      $scope.presentation.slidesImages = slides;
+      console.log($scope.presentation);
+    }
   });

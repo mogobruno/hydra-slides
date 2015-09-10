@@ -1,3 +1,46 @@
-<section class="container-fluid">
-	<form class=""></form>
+<section class="me container box-white">
+
+	<h4>Atualizar Cadastro</h4>
+    <table class="table table-hover">
+        <tbody>
+            <tr ng-hide="item=='name'">
+                <td><strong>Nome</strong></td>
+                <td>{{user.name | capitalize}}</td>
+                <td><a ng-click="item='name'">Editar</a></td>
+
+            </tr>
+            <tr ng-show="item=='name'">
+            	<td colspan=3>
+            		<strong>Nome</strong>
+                    <br>
+            		<input type="text" ng-model="user.name" class="form-control" placeholder="Nome">
+            		<br>
+            		<p><a class="btn btn-green" role="button">Salvar</a>
+            	</td>
+            </tr>
+
+            <tr ng-hide="item=='email'">
+            	<td><strong>E-mail</strong></td>
+            	<td colspan="2">{{user.email}}</td>
+            </tr>
+
+            <tr ng-hide="item=='password'">
+            	<td><strong>Senha</strong></td>
+            	<td>***********</td>
+            	<td><a ng-click="item='password'">Editar</a></td>
+            </tr>
+
+            <tr ng-show="item=='password'">
+            	<td colspan=3>
+            		<strong>Senha</strong>
+                    <br>
+            		<input type="password" ng-model="user.password" class="form-control" placeholder="Senha">
+            		<br>
+            		<input type="password" ng-model="user.passwordd" class="form-control" placeholder="Repetir Senha">
+            		<br>
+            		<p><a class="btn btn-green" role="button">Salvar</a>
+            	</td>
+            </tr>
+        </tbody>
+    </table>
 </section>
