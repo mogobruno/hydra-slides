@@ -22,8 +22,7 @@ angular.module('webClientApp')
         $scope.presentations = data;
       },
       error: function(data){
-        //TODO arrumar esse trecho para um alert mais bonito ou uma modal
-        alert(data.userMessage);
+        swal("Desculpe!", data.userMessage, "error");
       }
     });
 

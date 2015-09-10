@@ -6,8 +6,8 @@
             <img src="images/logo.png" width="100"> <strong>Hydra Slide Show</strong>
           </h1> 
           <h3>Assista o vídeo e descubra o quão facil pode ser criar uma apresentação.</h3>
-          <button class="btn btn-green btn-lg"> 
-            <span>Cadastre-se</span>
+          <button type="button" class="btn btn-green btn-lg" data-toggle="modal" data-target="#newUserModal">
+            Cadastre-se
           </button>
       </div>
       <div class="col-md-5">
@@ -36,3 +36,31 @@
       </div>
     </div>
   </section>
+
+<!-- Modal -->
+<div class="modal fade" id="newUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Cadastro</h4>
+      </div>
+      <div class="modal-body">
+        <form ng-submit="createUser(user)">
+            <br>
+            <input type="text" ng-model="user.name" class="form-control" placeholder="Nome" required>
+            <br>
+            <input type="text" ng-model="user.email" class="form-control" placeholder="E-Mail" required>
+            <br>
+            <input type="password" ng-model="user.password" class="form-control" placeholder="Senha" required>
+            <br>
+            <input type="password" ng-model="passwordd" class="form-control" placeholder="Repita a senha" required>
+            <br>
+            <input type="submit" class="form-control btn btn-green">
+          </form>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>

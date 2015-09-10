@@ -10,18 +10,17 @@
 angular.module('webClientApp')
   .controller('MyslidesCtrl', function ($scope, requisition, slideGenerator) {
     requisition.get({
-      url:'/slides',
+      url:'/slide',
       success: function(data){
-        for(var index in data.presentations){
-          var presentation = data.presentations[index];
+        for(var index in data){
+          var presentation = data[index];
           var cover = slideGenerator.generateCover(presentation);
           presentation.coverImage = cover;
         }
-        $scope.presentations = data.presentations;
+        $scope.presentations = data;
       },
       error: function(data){
-        //TODO arrumar esse trecho para um alert mais bonito ou uma modal
-        console.log(data.userMessage);
+        swal("Desculpe!", data.userMessage, "error");
       }
     });
   });

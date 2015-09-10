@@ -22,8 +22,7 @@ angular.module('webClientApp')
         $scope.presentations = data;
       },
       error: function(data){
-        //TODO arrumar esse trecho para um alert mais bonito ou uma modal
-        alert(data.userMessage);
+        swal("Desculpe!", data.userMessage, "error");
       }
     });
 
@@ -32,11 +31,10 @@ angular.module('webClientApp')
         url:'/user',
         data: user,
         success: function(data){
-          alert("Usuário cadastrado com sucesso.");
+          swal("Olá "+user.name+" =D", 'Sua conta foi criada com sucesso!', "success");
         },
         error: function(data){
-          //TODO arrumar esse trecho para um alert mais bonito ou uma modal
-          alert(data.userMessage);
+          swal("Desculpe!", data.userMessage, "error");
         }
       });
     };

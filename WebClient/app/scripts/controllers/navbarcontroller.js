@@ -35,8 +35,7 @@ angular.module('webClientApp')
             $window.location.href = '#/home';
           },
           error: function(data){
-            //TODO arrumar esse trecho para um alert mais bonito ou uma modal
-            console.err(data.userMessage);
+            swal("Desculpe!", data.userMessage, "error");
           }
         });
   		};
@@ -53,8 +52,7 @@ angular.module('webClientApp')
             $window.location.href = '#/';
           },
           error: function(data){
-            //TODO arrumar esse trecho para um alert mais bonito ou uma modal
-            console.err(data.userMessage);
+            swal("Desculpe!", data.userMessage, "error");
           }
         });
       }

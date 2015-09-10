@@ -46,8 +46,7 @@ angular.module('webClientApp')
         console.log($scope.presentation);
       },
       error: function(data){
-        //TODO arrumar esse trecho para um alert mais bonito ou uma modal
-        console.log(data.userMessage);
+        swal("Desculpe!", data.userMessage, "error");
       }
     });
 
