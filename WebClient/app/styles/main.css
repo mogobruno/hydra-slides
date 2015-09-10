@@ -165,3 +165,16 @@ nav.hydra-navbar a.link{
   text-decoration: none;
   padding:15px;
 }
+
+.delete{
+  background-color:#e74c3c;
+  padding:2px;
+  text-align: center;
+  color:#ecf0f1;
+  transition: background 0.5s;
+  cursor: pointer;
+}
+
+.delete:hover{
+  background-color:#c0392b;
+}

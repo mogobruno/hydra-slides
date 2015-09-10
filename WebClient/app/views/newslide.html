@@ -3,18 +3,17 @@
     <h4>Novo Slide</h4>
     <hr>
     <form ng-submit="save(presentation)">
-      <input type="text" name="name" class="form-control dark-input" ng-model="presentation.title" placeholder="Titulo" required>
+      <input ng-change="renderPreview(presentation)" type="text" name="name" class="form-control dark-input" ng-model="presentation.title" placeholder="Titulo" required>
       <br>
-      <input type="text" name="name" class="form-control dark-input" ng-model="presentation.subTitle" placeholder="Sub-titulo" required>
+      <input ng-change="renderPreview(presentation)" type="text" name="name" class="form-control dark-input" ng-model="presentation.subTitle" placeholder="Sub-titulo" required>
       <br>
-      <input type="color" class="form-control dark-input" ng-model="presentation.theme" required>
+      <input ng-change="renderPreview(presentation)" type="color" value="#000000" class="form-control dark-input" ng-model="presentation.theme" required>
       <br>
-      <textarea placeholder="conteúdo" name="name" rows="10" class="form-control text-height dark-input" ng-model="presentation.slideContent"></textarea>
+      <textarea ng-change="renderPreview(presentation)" placeholder="conteúdo" name="name" rows="10" class="form-control text-height dark-input" ng-model="presentation.slideContent"></textarea>
       <br>
       <textarea placeholder="Descrição" name="name"  class="form-control text-height dark-input" ng-model="presentation.description"></textarea>
       <br>
       <input type="submit" name="name" class="btn btn-green" value="Salvar">
-      <input type="button" value="Prévisualizar" class="btn btn-green" ng-click="renderPreview(presentation)">
     </form>
   </div>
   <div class="col-md-5">

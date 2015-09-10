@@ -8,7 +8,7 @@
  * Controller of the webClientApp
  */
 angular.module('webClientApp')
-  .controller('NewslideCtrl', function ($scope, requisition, slideGenerator) {
+  .controller('NewslideCtrl', function ($scope, $location, requisition, slideGenerator) {
     $scope.presentation = {};
 
     if(localStorage.user){
@@ -40,5 +40,37 @@ angular.module('webClientApp')
       var slides = slideGenerator.generateSlides($scope.presentation);
       $scope.presentation.slidesImages = slides;
       console.log($scope.presentation);
+    }
+
+    $scope.save = function(presentation){
+
+      requisition.post({
+          url:'/slide',
+          data: {
+              "title":presentation.title,
+              "content":JSON.stringify(presentation.content),
+              "description":presentation.description,
+              "theme":presentation.theme,
+              "subtitle":presentation.subTitle,
+              "ownerId":presentation.ownerId
+          },
+          success: function(data){
+            swal(
+              {
+                title: "Apresentação salva!",
+                text: "A apresentação "+presentation.title+" foi salva com sucesso!",
+                type: "success",
+              }, 
+              function(){
+                $location.path("/home");
+                $scope.$apply();
+              }
+            );
+          },
+          error: function(data){
+            console.log(data);
+            swal("Desculpe!", data.userMessage, "error");
+          }
+        });
     }
   });

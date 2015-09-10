@@ -3,10 +3,12 @@
     <input type="text" class="form-control dark-input" placeholder="Procurar apresentação">
     <div class="row slides">
       <div ng-repeat="presentation in presentations" class="col-sm-6 col-md-3">
-        <a href="#/slide/{{presentation.id}}" class="thumbnail">
+        <a href="#/slide/{{presentation.id}}">
           <img ng-src="{{presentation.coverImage}}" alt="" class="img-responsive"/>
-          <div class="author">Autor: {{presentation.author}}</div>
         </a>
+        <div class="delete" ng-click="deleteSlide(presentation)">
+          Deletar
+        </div>
       </div>
     </div>
 </section>

@@ -25,5 +25,7 @@ namespace Hydra.Api.DTO
         public string Theme { get; set; }
         public DateTime CreateDate { get; set; }
         public DateTime? UpdateDate { get; set; }
+        [Required]
+        public int OwnerId { get; set; }
     }
 }
