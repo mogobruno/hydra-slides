@@ -16,7 +16,11 @@ angular.module('webClientApp')
        
         if(localStorage.user){
           var user = JSON.parse(localStorage.user);
-          params.data.token = user.token;
+          if(!params.headers){
+            params.headers = {};
+          }
+
+          params.headers.Authorization = "Bearer "+user.token;
         }
       }
       $http({

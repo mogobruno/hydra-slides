@@ -17,6 +17,7 @@ angular.module('webClientApp')
       $scope.saveUser = function(user){
       	requisition.put({
 	      url:'/user/'+user.id,
+	      authentication: true,
 	      data: {
 		    "name": user.name,
 		    "email": user.email,

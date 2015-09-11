@@ -6,7 +6,7 @@
             <tr ng-hide="item=='name'">
                 <td><strong>Nome</strong></td>
                 <td>{{user.name | capitalize}}</td>
-                <td><a ng-click="item='name'">Editar</a></td>
+                <td><span ng-click="item='name'" class="edit glyphicon glyphicon-pencil"></span></td>
 
             </tr>
             <tr ng-show="item=='name'">
@@ -27,7 +27,7 @@
             <tr ng-hide="item=='password'">
             	<td><strong>Senha</strong></td>
             	<td>***********</td>
-            	<td><a ng-click="item='password'">Editar</a></td>
+            	<td><span ng-click="item='password'" class="edit glyphicon glyphicon-pencil"></span></td>
             </tr>
 
             <tr ng-show="item=='password'">
@@ -45,7 +45,7 @@
             <tr ng-hide="item=='job'">
                 <td><strong>Emprego (Opicional)</strong></td>
                 <td>{{user.job}}</td>
-                <td><a ng-click="item='job'">Editar</a></td>
+                <td><span ng-click="item='job'" class="edit glyphicon glyphicon-pencil"></span></td>
             </tr>
 
             <tr ng-show="item=='job'">
@@ -61,7 +61,7 @@
             <tr ng-hide="item=='nationality'">
                 <td><strong>País (Opicional)</strong></td>
                 <td>{{user.nationality}}</td>
-                <td><a ng-click="item='nationality'">Editar</a></td>
+                <td><span ng-click="item='nationality'" class="edit glyphicon glyphicon-pencil"></span></td>
             </tr>
 
             <tr ng-show="item=='nationality'">

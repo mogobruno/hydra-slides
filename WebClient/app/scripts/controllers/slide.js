@@ -24,7 +24,6 @@ angular.module('webClientApp')
     $scope.next = function(){
         if($scope.index < $scope.presentation.slidesImages.length)
           ++$scope.index;
-            console.log($scope.index);
         $scope.actualImage = $scope.presentation.slidesImages[$scope.index];
     }
 

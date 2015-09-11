@@ -9,7 +9,15 @@
  */
 angular.module('webClientApp')
   .controller('NewslideCtrl', function ($scope, $location, requisition, slideGenerator) {
-    $scope.presentation = {};
+    
+    if(localStorage.presentation){
+      var presentation = JSON.parse(localStorage.presentation);
+      if(presentation.ownerId === JSON.parse(localStorage.user).id){
+        $scope.presentation = presentation;  
+      }
+    }else{
+      $scope.presentation = {};
+    }
 
     if(localStorage.user){
       var user = JSON.parse(localStorage.user);
@@ -40,12 +48,14 @@ angular.module('webClientApp')
       var slides = slideGenerator.generateSlides($scope.presentation);
       $scope.presentation.slidesImages = slides;
       console.log($scope.presentation);
+      localStorage.presentation = JSON.stringify($scope.presentation);
     }
 
     $scope.save = function(presentation){
 
       requisition.post({
           url:'/slide',
+          authentication: true,
           data: {
               "title":presentation.title,
               "content":JSON.stringify(presentation.content),
@@ -62,6 +72,7 @@ angular.module('webClientApp')
                 type: "success",
               }, 
               function(){
+                delete localStorage.presentation;
                 $location.path("/home");
                 $scope.$apply();
               }
