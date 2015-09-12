@@ -34,5 +34,6 @@ namespace Hydra.Repository.Entity
                 return users.FirstOrDefault();
             }
         }
+
     }
 }

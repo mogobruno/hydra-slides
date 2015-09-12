@@ -11,15 +11,15 @@ namespace Hydra.Api.DTO
         [Required]
         public long Id { get; set; }
         [Required]
-        [MaxLength(100)]
+        [MaxLength(100, ErrorMessage = "O campo titulo não pode ter mais de 100 caracteres")]
         public string Title { get; set; }
         [Required]
-        [MaxLength(100)]
+        [MaxLength(100, ErrorMessage = "O campo sub-título não pode ter mais de 100 caracteres")]
         public string SubTitle { get; set; }
         [Required]
         public string Content { get; set; }
         [Required]
-        [MaxLength(1000)]
+        [MaxLength(1000, ErrorMessage = "O campo descrição não pode ter mais de 1000 caracteres")]
         public string Description { get; set; }
         [Required]
         public string Theme { get; set; }

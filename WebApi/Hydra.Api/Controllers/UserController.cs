@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Hydra.Api.DTO;
+using Hydra.Api.Identity;
 using Hydra.Domain;
+using Microsoft.AspNet.Identity;
 using Mogo.Repository.Generic.Entity;
 using System;
 using System.Collections.Generic;
@@ -9,6 +11,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace Hydra.Api.Controllers
 {
@@ -25,7 +28,7 @@ namespace Hydra.Api.Controllers
         // GET: api/User
         public IEnumerable<UserDTO> Get()
         {
-            return Mapper.Map<List<User>,List<UserDTO>>(_userRepository.Select(includeProperties: "Slides").ToList());
+            return Mapper.Map<List<User>, List<UserDTO>>(_userRepository.Select(includeProperties: "Slides").ToList());
         }
 
         // GET: api/User/5
@@ -40,8 +43,28 @@ namespace Hydra.Api.Controllers
             if (ModelState.IsValid)
             {
                 User user = Mapper.Map<UserDTO, User>(userDTO);
-                _userRepository.Insert(user);
-                return Request.CreateResponse(HttpStatusCode.Created);
+                HydraIdentityUser userIdentity = new HydraIdentityUser
+                {
+                    Email = user.Email,
+                    UserName = user.Name
+                };
+                HydraUserManager manager = Request.GetOwinContext().GetUserManager<HydraUserManager>();
+                IdentityResult result = manager.Create(userIdentity, user.Password);
+                if (result.Succeeded)
+                {
+                    return Request.CreateResponse(HttpStatusCode.Created);
+                }
+                else
+                {
+                    if (result.Errors != null)
+                    {
+                        result.Errors.ToList().ForEach(error =>
+                        {
+                            ModelState.AddModelError("",error);
+                        });
+                    }
+                    return ResponseErrorUtil.CreateResponseError(Request, ModelState);
+                }
             }
             else
             {
@@ -50,11 +73,11 @@ namespace Hydra.Api.Controllers
         }
 
         // PUT: api/User/5
-        public HttpResponseMessage Put(int id, [FromBody]UserDTO userDTO)
+        public HttpResponseMessage Put(int id, [FromBody]UserUpdateDTO userDTO)
         {
             if (ModelState.IsValid)
             {
-                User user = Mapper.Map<UserDTO, User>(userDTO);
+                User user = Mapper.Map<UserUpdateDTO, User>(userDTO);
                 _userRepository.Update(user);
                 return Request.CreateResponse(HttpStatusCode.OK);
             }

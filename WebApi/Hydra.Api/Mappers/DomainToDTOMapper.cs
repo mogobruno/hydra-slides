@@ -20,7 +20,7 @@ namespace Hydra.Api.Mappers
 
         protected override void Configure()
         {
-            Mapper.CreateMap<User, UserDTO>();
+            Mapper.CreateMap<User, UserUpdateDTO>();
             Mapper.CreateMap<Slide, SlideDTO>();
         }
     }
