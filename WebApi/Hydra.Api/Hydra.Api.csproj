@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AspNet.Identity.MySQL">
+      <HintPath>..\AspNet.Identity.MySQL.dll</HintPath>
+    </Reference>
     <Reference Include="AutoMapper">
       <HintPath>..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
@@ -220,6 +223,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\LoginFakeController.cs" />
     <Compile Include="Controllers\LogoutFakeController.cs" />
     <Compile Include="Controllers\ResponseErrorUtil.cs" />
@@ -227,6 +231,7 @@
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DTO\SlideDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="DTO\UserLoginDTO.cs" />
     <Compile Include="DTO\UserUpdateDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

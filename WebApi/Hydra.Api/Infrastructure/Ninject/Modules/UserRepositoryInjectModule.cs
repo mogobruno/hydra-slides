@@ -13,7 +13,7 @@ namespace Hydra.Api.Infrastructure.Ninject.Modules
     {
         public override void Load()
         {
-            Bind<MogoAbstractRepository<User, long>>()
+            Bind<MogoAbstractRepository<User, int>>()
                 .To<UserRepository>();
         }
     }

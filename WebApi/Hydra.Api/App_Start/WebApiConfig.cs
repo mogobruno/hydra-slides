@@ -22,6 +22,9 @@ namespace Hydra.Api
                 routeTemplate: "hydra/api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.SuppressDefaultHostAuthentication();
+            config.Filters.Add(new HostAuthenticationFilter("Bearer"));
         }
     }
 }

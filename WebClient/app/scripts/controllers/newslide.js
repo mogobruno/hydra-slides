@@ -11,18 +11,9 @@ angular.module('webClientApp')
   .controller('NewslideCtrl', function ($scope, $location, requisition, slideGenerator) {
     
     if(localStorage.presentation){
-      var presentation = JSON.parse(localStorage.presentation);
-      if(presentation.ownerId === JSON.parse(localStorage.user).id){
-        $scope.presentation = presentation;  
-      }
+      $scope.presentation = JSON.parse(localStorage.presentation);  
     }else{
       $scope.presentation = {};
-    }
-
-    if(localStorage.user){
-      var user = JSON.parse(localStorage.user);
-      console.log(user);
-      $scope.presentation.ownerId = user.id;  
     }
     
 
@@ -61,8 +52,7 @@ angular.module('webClientApp')
               "content":JSON.stringify(presentation.content),
               "description":presentation.description,
               "theme":presentation.theme,
-              "subtitle":presentation.subTitle,
-              "ownerId":presentation.ownerId
+              "subtitle":presentation.subTitle
           },
           success: function(data){
             swal(

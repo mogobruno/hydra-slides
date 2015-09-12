@@ -16,15 +16,17 @@ namespace Hydra.Api.Controllers
     public class SlideController : ApiController
     {
         private MogoAbstractRepository<Slide, long> _slideRepository;
+        private MogoAbstractRepository<User, int> _userRepository;
 
-        public SlideController(MogoAbstractRepository<Slide, long> slideRepository)
+        public SlideController(MogoAbstractRepository<Slide, long> slideRepository, MogoAbstractRepository<User, int> userRepository)
         {
             _slideRepository = slideRepository;
+            _userRepository = userRepository;
         }
 
         // GET: api/Slide
         public IEnumerable<SlideDTO> Get()
-        {
+        {    
             return Mapper.Map<List<Slide>, List<SlideDTO>>(_slideRepository.Select().ToList());
         }
 
@@ -34,12 +36,27 @@ namespace Hydra.Api.Controllers
             return Mapper.Map<Slide, SlideDTO>(_slideRepository.FindById(id));
         }
 
+        // GET: api/Slide/5
+        [Authorize]
+        [Route("hydra/api/slide/my")]
+        [HttpGet]
+        public IEnumerable<SlideDTO> GetMySlides()
+        {
+            var userIdentity = this.User.Identity;
+            User user = _userRepository.Select(u => u.Email.Equals(userIdentity.Name))[0];
+            return Mapper.Map<List<Slide>, List<SlideDTO>>(_slideRepository.Select(s => s.OwnerId == user.Id).ToList());
+        }
+
         // POST: api/Slide
+        [Authorize]
         public HttpResponseMessage Post([FromBody]SlideDTO slideDTO)
         {
             if (ModelState.IsValid)
             {
                 Slide slide = Mapper.Map<SlideDTO, Slide>(slideDTO);
+                var userIdentity = this.User.Identity;
+                User user = _userRepository.Select(u => u.Email.Equals(userIdentity.Name))[0];
+                slide.OwnerId = user.Id;
                 _slideRepository.Insert(slide);
                 return Request.CreateResponse(HttpStatusCode.OK);
             }
@@ -65,6 +82,7 @@ namespace Hydra.Api.Controllers
         }
 
         // DELETE: api/Slide/5
+        [Authorize]
         public void Delete(long id)
         {
             Slide slide = _slideRepository.FindById(id);

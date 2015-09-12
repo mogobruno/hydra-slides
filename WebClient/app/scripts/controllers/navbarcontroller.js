@@ -26,17 +26,21 @@ angular.module('webClientApp')
 
   		$scope.login = function(user){
   			requisition.post({
-          url:'/loginfake',
+          url:'/account',
           data: user,
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
-          },
           success: function(data){
-            localStorage.user = JSON.stringify(data);
-            console.dir(data.name);
-            $scope.user = data;
-            $scope.hasUser = true;
-            $window.location.href = '#/home';
+              if(data){
+              var userToken = {
+                token: data,
+                name: user.email
+              }
+              localStorage.user = JSON.stringify(userToken);
+              $scope.user = userToken
+              $scope.hasUser = true;
+              $window.location.href = '#/home';
+            }else{
+              swal("Desculpe!", "Login ou senha inválidos.", "error");
+            }
           },
           error: function(data){
             swal("Desculpe!", data.userMessage, "error");
@@ -45,20 +49,10 @@ angular.module('webClientApp')
   		};
 
       $scope.logout = function(){
-        requisition.post({
-          url:'/logoutfake',
-          authentication: true,
-          success: function(data){
-            delete localStorage.user;
-            console.dir(data);
-            $scope.user = "";
-            $scope.hasUser = false;
-            $scope.menu = 1;
-            $window.location.href = '#/';
-          },
-          error: function(data){
-            swal("Desculpe!", data.userMessage, "error");
-          }
-        });
+        delete localStorage.user;
+        $scope.user = "";
+        $scope.hasUser = false;
+        $scope.menu = 1;
+        $window.location.href = '#/';
       }
   });

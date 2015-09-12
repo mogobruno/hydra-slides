@@ -15,12 +15,13 @@ using Microsoft.AspNet.Identity.Owin;
 
 namespace Hydra.Api.Controllers
 {
+    [Authorize]
     [EnableCors(origins: "*", headers: "*", methods: "GET,PUT,POST,DELETE")]
     public class UserController : ApiController
     {
-        private MogoAbstractRepository<User, long> _userRepository;
+        private MogoAbstractRepository<User, int> _userRepository;
 
-        public UserController(MogoAbstractRepository<User, long> userRepository)
+        public UserController(MogoAbstractRepository<User, int> userRepository)
         {
             _userRepository = userRepository;
         }
@@ -32,12 +33,13 @@ namespace Hydra.Api.Controllers
         }
 
         // GET: api/User/5
-        public UserDTO Get(long id)
+        public UserDTO Get(int id)
         {
             return Mapper.Map<User, UserDTO>(_userRepository.FindById(id, includeProperties: "Slides"));
         }
 
         // POST: api/User
+        [AllowAnonymous]
         public HttpResponseMessage Post([FromBody]UserDTO userDTO)
         {
             if (ModelState.IsValid)
@@ -46,12 +48,13 @@ namespace Hydra.Api.Controllers
                 HydraIdentityUser userIdentity = new HydraIdentityUser
                 {
                     Email = user.Email,
-                    UserName = user.Name
+                    UserName = user.Email,
                 };
                 HydraUserManager manager = Request.GetOwinContext().GetUserManager<HydraUserManager>();
                 IdentityResult result = manager.Create(userIdentity, user.Password);
                 if (result.Succeeded)
                 {
+                    _userRepository.Insert(user);
                     return Request.CreateResponse(HttpStatusCode.Created);
                 }
                 else
@@ -88,7 +91,7 @@ namespace Hydra.Api.Controllers
         }
 
         // DELETE: api/User/5
-        public void Delete(long id)
+        public void Delete(int id)
         {
             User user = _userRepository.FindById(id);
             _userRepository.Delete(user);

@@ -10,7 +10,8 @@
 angular.module('webClientApp')
   .controller('MyslidesCtrl', function ($scope, requisition, slideGenerator) {
     requisition.get({
-      url:'/slide',
+      url:'/slide/my',
+      authentication: true,
       success: function(data){
         for(var index in data){
           var presentation = data[index];
@@ -37,6 +38,7 @@ angular.module('webClientApp')
         function(){   
           requisition.delete({
             url:'/slide/'+slide.id,
+            authentication: true,
             success: function(data){
               for(var index in $scope.presentations){
                 var presentation = $scope.presentations[index];

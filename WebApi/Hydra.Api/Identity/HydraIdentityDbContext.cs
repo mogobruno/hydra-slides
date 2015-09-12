@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using AspNet.Identity.MySQL;
 using MySql.Data.Entity;
 using System;
 using System.Collections.Generic;
@@ -8,8 +8,12 @@ using System.Web;
 
 namespace Hydra.Api.Identity
 {
-    [DbConfigurationType(typeof(MySqlEFConfiguration))]
-    public class HydraIdentityDbContext : IdentityDbContext<HydraIdentityUser>
+    public class HydraIdentityDbContext : MySQLDatabase
     {
+        public HydraIdentityDbContext(string connectionName)
+            : base(connectionName)
+        {
+
+        }
     }
 }
