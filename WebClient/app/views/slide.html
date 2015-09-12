@@ -6,12 +6,23 @@
       <button type="button" name="button" class="presentation-button" ng-click="next()">Próximo <span class="glyphicon glyphicon-chevron-right"></span></button>
       <button class="presentation-button presentation-button-fullscreen" ng-click="toggleFullScreen()">Apresentar <span class="glyphicon glyphicon-fullscreen"></span></button>
     </div>
-  </div>
-  <div class="col-md-5">
     <div class="information box-white">
       <h4>{{presentation.title}}</h4>
       <hr>
       <p>{{presentation.description}}</p>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <div class="box-white">
+      <h4>Apresentações</h4>
+      <input type="text" ng-model="searchText" class="form-control dark-input" placeholder="Procurar apresentação">
+      <div class="row slides">
+        <div ng-repeat="presentation in presentations | filter:searchText" class="col-sm-6 col-md-6">
+          <a href="#/slide/{{presentation.id}}" class="thumbnail">
+            <img ng-src="{{presentation.coverImage}}" alt="" class="img-responsive"/>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>

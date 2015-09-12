@@ -31,7 +31,8 @@ angular.module('webClientApp')
         type: "warning",
         showCancelButton: true,
         confirmButtonColor: "#DD6B55",
-        confirmButtonText: "deletar!",
+        confirmButtonText: "Deletar!",
+        cancelButtonText: "Cancelar.",
         closeOnConfirm: false }, 
         function(){   
           requisition.delete({

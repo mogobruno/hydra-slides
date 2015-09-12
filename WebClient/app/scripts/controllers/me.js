@@ -19,6 +19,7 @@ angular.module('webClientApp')
 	      url:'/user/'+user.id,
 	      authentication: true,
 	      data: {
+	      	"id":user.id,
 		    "name": user.name,
 		    "email": user.email,
 		    "nationality": user.nationality,

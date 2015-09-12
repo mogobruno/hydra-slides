@@ -28,9 +28,13 @@ angular.module('webClientApp')
   			requisition.post({
           url:'/loginfake',
           data: user,
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+          },
           success: function(data){
             localStorage.user = JSON.stringify(data);
             console.dir(data.name);
+            $scope.user = data;
             $scope.hasUser = true;
             $window.location.href = '#/home';
           },
@@ -47,6 +51,7 @@ angular.module('webClientApp')
           success: function(data){
             delete localStorage.user;
             console.dir(data);
+            $scope.user = "";
             $scope.hasUser = false;
             $scope.menu = 1;
             $window.location.href = '#/';

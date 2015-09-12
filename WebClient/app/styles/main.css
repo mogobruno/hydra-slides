@@ -180,6 +180,7 @@ nav.hydra-navbar a.link{
 .delete{
   color:#2c3e50;
   transition:color 1s, transform 1s, background-color 1s;
+  transition-timing-function: ease-out;
   padding:5px;
   border-radius: 50%;
   cursor: pointer;
@@ -194,6 +195,7 @@ nav.hydra-navbar a.link{
 .edit{
   color:#2c3e50;
   transition:color 1s, transform 1s, background-color 1s;
+  transition-timing-function: ease-out;
   padding:5px;
   border-radius: 50%;
   cursor: pointer;

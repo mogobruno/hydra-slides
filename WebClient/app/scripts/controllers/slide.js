@@ -22,7 +22,7 @@ angular.module('webClientApp')
     }
 
     $scope.next = function(){
-        if($scope.index < $scope.presentation.slidesImages.length)
+        if($scope.index < $scope.presentation.slidesImages.length-1)
           ++$scope.index;
         $scope.actualImage = $scope.presentation.slidesImages[$scope.index];
     }
@@ -33,8 +33,6 @@ angular.module('webClientApp')
         $scope.actualImage = $scope.presentation.slidesImages[$scope.index];
     }
 
-
-
     requisition.get({
       url:'/slide/'+$routeParams.id,
       success: function(data){
@@ -43,6 +41,22 @@ angular.module('webClientApp')
         $scope.presentation = data;
         $scope.actualImage = $scope.presentation.slidesImages[$scope.index];
         console.log($scope.presentation);
+      },
+      error: function(data){
+        swal("Desculpe!", data.userMessage, "error");
+      }
+    });
+
+    requisition.get({
+      url:'/slide',
+      success: function(data){
+        console.log(data);
+        for(var index in data){
+          var presentation = data[index];
+          var cover = slideGenerator.generateCover(presentation);
+          presentation.coverImage = cover;
+        }
+        $scope.presentations = data;
       },
       error: function(data){
         swal("Desculpe!", data.userMessage, "error");

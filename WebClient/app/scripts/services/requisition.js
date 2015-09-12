@@ -38,8 +38,16 @@ angular.module('webClientApp')
           params.success(data);
         }
       }).error(function(data){ //, status, headers, config
-        var data = data || {};
-        data.userMessage = 'Erro de comunicação com o servidor, tente novamente mais tarde.';
+        console.log(data);
+        if(data){
+          for(var index in data){
+            if(index !== "userMessage"){
+              data.userMessage = data[index][0];
+            }
+          }
+        }else{
+          data.userMessage = 'Erro de comunicação com o servidor, tente novamente mais tarde.';
+        }
         params.error(data);
       });
     };
