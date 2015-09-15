@@ -19,9 +19,9 @@ namespace Hydra.Api.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "GET,PUT,POST,DELETE")]
     public class UserController : ApiController
     {
-        private MogoAbstractRepository<User, int> _userRepository;
+        private MogoAbstractRepository<User, long> _userRepository;
 
-        public UserController(MogoAbstractRepository<User, int> userRepository)
+        public UserController(MogoAbstractRepository<User, long> userRepository)
         {
             _userRepository = userRepository;
         }
@@ -33,7 +33,7 @@ namespace Hydra.Api.Controllers
         }
 
         // GET: api/User/5
-        public UserDTO Get(int id)
+        public UserDTO Get(long id)
         {
             return Mapper.Map<User, UserDTO>(_userRepository.FindById(id, includeProperties: "Slides"));
         }
@@ -76,7 +76,7 @@ namespace Hydra.Api.Controllers
         }
 
         // PUT: api/User/5
-        public HttpResponseMessage Put(int id, [FromBody]UserUpdateDTO userDTO)
+        public HttpResponseMessage Put(long id, [FromBody]UserUpdateDTO userDTO)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace Hydra.Api.Controllers
         }
 
         // DELETE: api/User/5
-        public void Delete(int id)
+        public void Delete(long id)
         {
             User user = _userRepository.FindById(id);
             _userRepository.Delete(user);

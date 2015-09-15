@@ -26,6 +26,6 @@ namespace Hydra.Api.DTO
         public DateTime CreateDate { get; set; }
         public DateTime? UpdateDate { get; set; }
         [Required]
-        public int OwnerId { get; set; }
+        public long OwnerId { get; set; }
     }
 }

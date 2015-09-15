@@ -1,5 +1,5 @@
 ﻿using Hydra.Domain;
-using Hydra.Persistence.MySql.Entity.Context;
+using Hydra.Persistence.SqlServer.Entity.Context;
 using Mogo.Repository.Generic.Entity;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Data.Entity;
 
 namespace Hydra.Repository.Entity
 {
-    public class UserRepository : MogoAbstractRepository<User, int>
+    public class UserRepository : MogoAbstractRepository<User, long>
     {
         public UserRepository(HydraDbContext context)
             : base(context)
@@ -18,7 +18,7 @@ namespace Hydra.Repository.Entity
 
         }
 
-        public override User FindById(int key, params string[] includeProperties)
+        public override User FindById(long key, params string[] includeProperties)
         {
             if (includeProperties.Count() == 0)
             {

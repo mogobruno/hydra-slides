@@ -16,9 +16,9 @@ namespace Hydra.Api.Controllers
     public class SlideController : ApiController
     {
         private MogoAbstractRepository<Slide, long> _slideRepository;
-        private MogoAbstractRepository<User, int> _userRepository;
+        private MogoAbstractRepository<User, long> _userRepository;
 
-        public SlideController(MogoAbstractRepository<Slide, long> slideRepository, MogoAbstractRepository<User, int> userRepository)
+        public SlideController(MogoAbstractRepository<Slide, long> slideRepository, MogoAbstractRepository<User, long> userRepository)
         {
             _slideRepository = slideRepository;
             _userRepository = userRepository;
@@ -57,6 +57,7 @@ namespace Hydra.Api.Controllers
                 var userIdentity = this.User.Identity;
                 User user = _userRepository.Select(u => u.Email.Equals(userIdentity.Name))[0];
                 slide.OwnerId = user.Id;
+                slide.Owner = user;
                 _slideRepository.Insert(slide);
                 return Request.CreateResponse(HttpStatusCode.OK);
             }

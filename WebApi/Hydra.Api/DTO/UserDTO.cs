@@ -9,7 +9,7 @@ namespace Hydra.Api.DTO
     public class UserDTO
     {
         [Required]
-        public int Id { get; set; }
+        public long Id { get; set; }
         [Required]
         [MaxLength(200, ErrorMessage = "O campo nome não pode ter mais de 200 caracteres")]
         public string Name { get; set; }

@@ -1,4 +1,4 @@
-﻿using AspNet.Identity.MySQL;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -17,7 +17,7 @@ namespace Hydra.Persistence.SqlServer.Entity.Migrations
                         sld_description = c.String(nullable: false, maxLength: 1000),
                         sld_content = c.String(nullable: false),
                         sld_theme = c.String(nullable: false),
-                        sld_create_date = c.DateTime(nullable: false),
+                        sld_create_date = c.DateTime(nullable: false, defaultValueSql: "GETDATE()"),
                         sld_update_date = c.DateTime(),
                         usr_owner_id = c.Long(nullable: false),
                     })

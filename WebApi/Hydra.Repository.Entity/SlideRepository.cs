@@ -1,5 +1,5 @@
 ﻿using Hydra.Domain;
-using Hydra.Persistence.MySql.Entity.Context;
+using Hydra.Persistence.SqlServer.Entity.Context;
 using Mogo.Repository.Generic.Entity;
 using System;
 using System.Collections.Generic;

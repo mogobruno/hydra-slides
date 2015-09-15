@@ -4,7 +4,7 @@ using Microsoft.Owin;
 using Owin;
 using Hydra.Api.Identity;
 using Microsoft.Owin.Security.OAuth;
-using AspNet.Identity.MySQL;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 [assembly: OwinStartup(typeof(Hydra.Api.Startup))]
 
@@ -17,8 +17,8 @@ namespace Hydra.Api
 
         public void Configuration(IAppBuilder app)
         {
-            app.CreatePerOwinContext(() => new HydraIdentityDbContext("HydraIdentityDbContext") as MySQLDatabase);
-            app.CreatePerOwinContext(() => new HydraUserManager(new UserStore<HydraIdentityUser>(new HydraIdentityDbContext("HydraIdentityDbContext") as MySQLDatabase)));
+            app.CreatePerOwinContext(() => new HydraIdentityDbContext("HydraIdentityDbContext"));
+            app.CreatePerOwinContext(() => new HydraUserManager(new UserStore<HydraIdentityUser>(new HydraIdentityDbContext("HydraIdentityDbContext"))));
             OAuthBearerOptions = new OAuthBearerAuthenticationOptions();
             app.UseOAuthBearerAuthentication(OAuthBearerOptions);
             // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=316888

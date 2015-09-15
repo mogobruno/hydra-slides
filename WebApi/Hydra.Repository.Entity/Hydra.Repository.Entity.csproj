@@ -59,9 +59,9 @@
       <Project>{60317e6a-d72c-4195-877f-e1bc2f819aa9}</Project>
       <Name>Hydra.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Hydra.Persistence.MySql.Entity\Hydra.Persistence.MySql.Entity.csproj">
-      <Project>{ed5554b0-21a2-4683-ac02-ed579f8a7e0d}</Project>
-      <Name>Hydra.Persistence.MySql.Entity</Name>
+    <ProjectReference Include="..\Hydra.Persistence.SqlServer.Entity\Hydra.Persistence.SqlServer.Entity.csproj">
+      <Project>{74d0163c-81b2-4942-ad03-5bddba51c0bf}</Project>
+      <Name>Hydra.Persistence.SqlServer.Entity</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mogo.Repository.Generic\Mogo.Repository.Generic.Entity.csproj">
       <Project>{bec4ec7d-658d-4f9b-a66c-105974f08cd8}</Project>
