@@ -13,6 +13,6 @@ namespace Hydra.Domain
         public DateTime CreateDate { get; set; }
         public DateTime? UpdateDate { get; set; }
         public virtual User Owner { get; set; }
-        public int OwnerId { get; set; }
+        public long OwnerId { get; set; }
     }
 }

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mogo.Repository.Generic.Ent
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hydra.Repository.Entity", "Hydra.Repository.Entity\Hydra.Repository.Entity.csproj", "{7AB2D725-1667-4B1D-AF6D-EFB9DF8EE1DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hydra.Persistence.SqlServer.Entity", "Hydra.Persistence.SqlServer.Entity\Hydra.Persistence.SqlServer.Entity.csproj", "{74D0163C-81B2-4942-AD03-5BDDBA51C0BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{7AB2D725-1667-4B1D-AF6D-EFB9DF8EE1DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AB2D725-1667-4B1D-AF6D-EFB9DF8EE1DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AB2D725-1667-4B1D-AF6D-EFB9DF8EE1DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74D0163C-81B2-4942-AD03-5BDDBA51C0BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74D0163C-81B2-4942-AD03-5BDDBA51C0BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74D0163C-81B2-4942-AD03-5BDDBA51C0BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74D0163C-81B2-4942-AD03-5BDDBA51C0BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
