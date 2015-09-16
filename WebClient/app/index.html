@@ -50,10 +50,12 @@
             </li>
           </ul>
 
-          <form ng-hide="hasUser" ng-submit="login(user)" class="navbar-form navbar-right">
+          <form autocomplete="on" ng-hide="hasUser" ng-submit="login(user)" class="navbar-form navbar-right">
             <div class="form-group">
-            <input type="text" ng-model="user.email" class="form-control dark-input" placeholder="Login">
-            <input type="password" ng-model="user.password" class="form-control dark-input" placeholder="Senha">
+            <label for="email">E-Mail: </label>
+            <input type="text" id="email" ng-model="user.email" class="form-control dark-input" placeholder="name@email.com">
+            <label for="password">Senha: </label>
+            <input type="Password" id="password" ng-model="user.password" class="form-control dark-input">
             </div>
             <button type="submit" class="btn btn-green"><span class="glyphicon glyphicon-log-in"></span> Entrar</button>
           </form>

@@ -45,15 +45,19 @@
         <h4 class="modal-title" id="myModalLabel">Cadastro</h4>
       </div>
       <div class="modal-body">
-        <form ng-submit="createUser(user)">
+        <form autocomplete="off" ng-submit="createUser(user)">
             <br>
-            <input type="text" ng-model="user.name" class="form-control" placeholder="Nome" required>
+            <label for="name">Nome: </label>
+            <input type="text" id="name" ng-model="user.name" class="form-control" placeholder="como gostaria de ser chamado?" required>
             <br>
-            <input type="text" ng-model="user.email" class="form-control" placeholder="E-Mail" required>
+            <label for="email">E-Mail: </label>
+            <input type="text" id="email" ng-model="user.email" class="form-control" placeholder="nome@email.com" required>
             <br>
-            <input type="password" ng-model="user.password" class="form-control" placeholder="Senha" required>
-            <br>
-            <input type="password" ng-model="passwordd" class="form-control" placeholder="Repita a senha" required>
+            <label for="password">Senha: </label>
+            <div class="input-group">
+              <input type="{{showpassword ? 'text' : 'password'}}" id="password" ng-model="user.password" class="form-control" placeholder="Senha" required>
+              <span ng-mouseover="showpassword=true" ng-mouseout="showpassword=false" class="input-group-addon glyphicon glyphicon-eye-open"></span>
+            </div>
             <br>
             <input type="submit" class="form-control btn btn-green">
           </form>

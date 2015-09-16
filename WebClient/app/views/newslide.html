@@ -3,15 +3,20 @@
     <h4>Novo Slide</h4>
     <hr>
     <form ng-submit="save(presentation)">
-      <input ng-change="renderPreview(presentation)" type="text" name="name" class="form-control dark-input" ng-model="presentation.title" placeholder="Título" required>
+      <label for="title">Título: </label>
+      <input id="title" ng-change="renderPreview(presentation)" type="text" name="name" class="form-control dark-input" ng-model="presentation.title" required>
       <br>
-      <input ng-change="renderPreview(presentation)" type="text" name="name" class="form-control dark-input" ng-model="presentation.subTitle" placeholder="Sub-título" required>
+      <label for="subtitle">Sub-título: </label>
+      <input id="subtitle" ng-change="renderPreview(presentation)" type="text" name="name" class="form-control dark-input" ng-model="presentation.subTitle" required>
       <br>
-      <input ng-change="renderPreview(presentation)" type="color" value="#000000" class="form-control dark-input" ng-model="presentation.theme" required>
+      <label for="color">Cor: </label>
+      <input id="color" ng-change="renderPreview(presentation)" type="color" value="#000000" class="form-control dark-input" ng-model="presentation.theme" required>
       <br>
-      <textarea ng-change="renderPreview(presentation)" placeholder="conteúdo" name="name" rows="10" class="form-control text-height dark-input" ng-model="presentation.slideContent"></textarea>
+      <label for="content">Conteúdo: </label>
+      <textarea id="content" ng-change="renderPreview(presentation)" name="name" rows="10" class="form-control text-height dark-input" ng-model="presentation.slideContent"></textarea>
       <br>
-      <textarea placeholder="Descrição" name="name"  class="form-control text-height dark-input" ng-model="presentation.description" required></textarea>
+      <label for="description">Descrição: </label>
+      <textarea id="description" name="name"  class="form-control text-height dark-input" ng-model="presentation.description" required></textarea>
       <br>
       <input type="submit" name="name" class="btn btn-green" value="Salvar">
     </form>
