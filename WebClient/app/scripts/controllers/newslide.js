@@ -22,7 +22,6 @@ angular.module('webClientApp')
     }
 
     var generateSlides = function(presentation){
-      console.log(presentation);
       var slidesContent = [];
       if(presentation.slideContent){
         var content = presentation.slideContent.split('\n');
@@ -32,13 +31,11 @@ angular.module('webClientApp')
           slide.content = content[index+1];
           slidesContent.push(slide);
         }
-        console.log(JSON.stringify(slidesContent));
       }
 
       $scope.presentation.content = JSON.stringify(slidesContent);
       var slides = slideGenerator.generateSlides($scope.presentation);
       $scope.presentation.slidesImages = slides;
-      console.log($scope.presentation);
       localStorage.presentation = JSON.stringify($scope.presentation);
     }
 
@@ -69,7 +66,6 @@ angular.module('webClientApp')
             );
           },
           error: function(data){
-            console.log(data);
             swal("Desculpe!", data.userMessage, "error");
           }
         });

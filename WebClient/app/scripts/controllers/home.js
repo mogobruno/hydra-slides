@@ -13,7 +13,6 @@ angular.module('webClientApp')
     requisition.get({
       url:'/slide',
       success: function(data){
-        console.log(data);
         for(var index in data){
           var presentation = data[index];
           var cover = slideGenerator.generateCover(presentation);

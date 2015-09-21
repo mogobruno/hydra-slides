@@ -26,7 +26,6 @@ angular.module('webClientApp')
 		    "job": user.job
 		  },
 	      success: function(data){
-	      	console.log(user);
 	      	localStorage.user = JSON.stringify(user);
 	      	$scope.item = "";
 	        swal("Dados salvos!", "Obrigado por manter seu cadastro atualizado! =D", "success");

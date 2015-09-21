@@ -11,8 +11,6 @@ angular.module('webClientApp')
   .controller('NavbarcontrollerCtrl', function ($scope, requisition, $window) {
       var user = localStorage.user;
 
-      console.log(localStorage.user);
-
       if(user){
           $scope.hasUser = true;
           $scope.user = JSON.parse(user);

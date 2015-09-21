@@ -40,7 +40,6 @@ angular.module('webClientApp')
         data.slidesImages = slides;
         $scope.presentation = data;
         $scope.actualImage = $scope.presentation.slidesImages[$scope.index];
-        console.log($scope.presentation);
       },
       error: function(data){
         swal("Desculpe!", data.userMessage, "error");
@@ -50,7 +49,6 @@ angular.module('webClientApp')
     requisition.get({
       url:'/slide',
       success: function(data){
-        console.log(data);
         for(var index in data){
           var presentation = data[index];
           var cover = slideGenerator.generateCover(presentation);

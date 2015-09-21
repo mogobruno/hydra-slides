@@ -27,7 +27,6 @@ angular.module('webClientApp')
         var slides = [];
         slides.push(this.generateCover(presentation));
         presentation.content = JSON.parse(presentation.content);
-        console.log(presentation);
         for(var index in presentation.content){
           var slide = presentation.content[index];
           slides.push(generateSlide(presentation.theme, slide));

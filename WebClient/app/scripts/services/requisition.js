@@ -38,7 +38,6 @@ angular.module('webClientApp')
           params.success(data);
         }
       }).error(function(data){ //, status, headers, config
-        console.log(data);
         if(data){
           for(var index in data){
             if(index !== "userMessage"){
