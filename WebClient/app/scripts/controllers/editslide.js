@@ -2,17 +2,31 @@
 
 /**
  * @ngdoc function
- * @name webClientApp.controller:NewslideCtrl
+ * @name webClientApp.controller:EditslideCtrl
  * @description
- * # NewslideCtrl
+ * # EditslideCtrl
  * Controller of the webClientApp
  */
 angular.module('webClientApp')
-  .controller('NewslideCtrl', function ($scope, $location, requisition, slideGenerator) {
+  .controller('EditslideCtrl', function ($scope, $routeParams, $location, requisition, slideGenerator) {
     
-    $scope.view = {
-      title : "Novo Slide"
+	$scope.view = {
+      title : "Editar Slide"
     };
+
+    requisition.get({
+      url:'/slide/'+$routeParams.id,
+      success: function(data){
+        var slides = slideGenerator.generateSlides(data);
+        data.slidesImages = slides;
+        $scope.presentation = data;
+        $scope.actualImage = $scope.presentation.slidesImages[$scope.index];
+        stringifySlideContent(data.content);
+      },
+      error: function(data){
+        swal("Desculpe!", data.userMessage, "error");
+      }
+    });
 
     if(localStorage.presentation){
       $scope.presentation = JSON.parse(localStorage.presentation);  
@@ -23,6 +37,19 @@ angular.module('webClientApp')
 
     $scope.renderPreview = function(presentation){
       generateSlides(presentation);
+    }
+
+    var stringifySlideContent = function(content){
+    	
+    	var stringContent = "";
+    	for(var index in content){
+    		console.log(content[index]);
+    		var slide = content[index];
+    		stringContent += slide.title.concat("\n");
+    		stringContent += slide.content.concat("\n\n");
+    		console.log(stringContent);
+    	}
+    	$scope.presentation.slideContent = stringContent;
     }
 
     var generateSlides = function(presentation){
@@ -45,8 +72,8 @@ angular.module('webClientApp')
 
     $scope.save = function(presentation){
 
-      requisition.post({
-          url:'/slide',
+      requisition.put({
+          url:'/slide/'+$routeParams.id,
           authentication: true,
           data: {
               "title":presentation.title,
@@ -58,8 +85,8 @@ angular.module('webClientApp')
           success: function(data){
             swal(
               {
-                title: "Apresentação salva!",
-                text: "A apresentação "+presentation.title+" foi salva com sucesso!",
+                title: "Apresentação atualizada!",
+                text: "A apresentação "+presentation.title+" foi ataulizada com sucesso!",
                 type: "success",
               }, 
               function(){

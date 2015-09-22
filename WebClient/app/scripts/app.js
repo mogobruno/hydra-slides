@@ -41,6 +41,11 @@ angular
         controller: 'NewslideCtrl',
         controllerAs: 'newslide'
       })
+      .when('/edit/slide/:id', {
+        templateUrl: 'views/newslide.html',
+        controller: 'EditslideCtrl',
+        controllerAs: 'editslide'
+      })
       .when('/me', {
         templateUrl: 'views/me.html',
         controller: 'MeCtrl',

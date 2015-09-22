@@ -7,7 +7,7 @@
           <img ng-src="{{presentation.coverImage}}" alt="" class="img-responsive"/>
         </a>
         <div class="icons">
-          <span class="edit glyphicon glyphicon-pencil"></span>
+          <a href="#edit/slide/{{presentation.id}}"><span class="edit glyphicon glyphicon-pencil"></span></a>
           <span class="delete glyphicon glyphicon-remove" ng-click="deleteSlide(presentation)"></span>
         </div>
       </div>

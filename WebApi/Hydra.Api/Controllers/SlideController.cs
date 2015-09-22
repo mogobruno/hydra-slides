@@ -73,6 +73,12 @@ namespace Hydra.Api.Controllers
             if (ModelState.IsValid)
             {
                 Slide slide = Mapper.Map<SlideDTO, Slide>(slideDTO);
+                var userIdentity = this.User.Identity;
+                User user = _userRepository.Select(u => u.Email.Equals(userIdentity.Name))[0];
+                slide.Id = id;
+                slide.UpdateDate = DateTime.Now;
+                slide.OwnerId = user.Id;
+                slide.Owner = user;
                 _slideRepository.Update(slide);
                 return Request.CreateResponse(HttpStatusCode.OK);
             }
