@@ -8,6 +8,8 @@
     </div>
     <div class="information box-white">
       <h4>{{presentation.title}}</h4>
+      <p>Criado: {{presentation.createDate | date:'dd/MM/yyyy HH:mm:ss'}}</p>
+      <p>Última alteração: {{presentation.updateDate | date:'dd/MM/yyyy HH:mm:ss'}}</p>
       <hr>
       <p>{{presentation.description}}</p>
     </div>

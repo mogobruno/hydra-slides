@@ -11,6 +11,8 @@ using Microsoft.Owin.Security;
 using System.Security.Claims;
 using Microsoft.Owin.Infrastructure;
 using Hydra.Api.DTO;
+using Mogo.Repository.Generic.Entity;
+using Hydra.Domain;
 
 namespace Hydra.Api.Controllers
 {

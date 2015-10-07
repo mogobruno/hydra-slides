@@ -27,12 +27,6 @@ angular.module('webClientApp')
         swal("Desculpe!", data.userMessage, "error");
       }
     });
-
-    if(localStorage.presentation){
-      $scope.presentation = JSON.parse(localStorage.presentation);  
-    }else{
-      $scope.presentation = {};
-    }
     
 
     $scope.renderPreview = function(presentation){
@@ -67,7 +61,6 @@ angular.module('webClientApp')
       $scope.presentation.content = JSON.stringify(slidesContent);
       var slides = slideGenerator.generateSlides($scope.presentation);
       $scope.presentation.slidesImages = slides;
-      localStorage.presentation = JSON.stringify($scope.presentation);
     }
 
     $scope.save = function(presentation){
